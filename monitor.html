@@ -42,14 +42,9 @@
           </li>
 
 
-
-
            <li class="nav-item dropdown">
-
-
-
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Configuracion
+          Menu
         </a>
 
 
@@ -65,8 +60,6 @@
 
       </li>
       
-
-
     <li class="nav-item">
             <a class="nav-link" href="/index.html">Cerrar Sesión</a>
           </li>
@@ -879,7 +872,7 @@ var newContent4 = document.createTextNode("OFF");
   var tblBody = document.createElement("tbody");
 
   // Crea las celdas
-  for (var i = 0; i < 9; i++) {
+  for (var i = 0; i < 4; i++) {
     // Crea las hileras de la tabla
     var hilera = document.createElement("tr");
 
@@ -927,14 +920,50 @@ if(i==2)
 
 if(i==3)
      {
+/*
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><a href="#">HTML</a></li>
+    <li><a href="#">CSS</a></li>
+    <li><a href="#">JavaScript</a></li>
+  </ul>
+</div>
 
-   
+*/
+
+
+ var dev = document.createElement("div")
+        dev.setAttribute("class","dropdown")
+
+ var buttons = document.createElement("button")
+        buttons.setAttribute("class","btn btn-primary dropdown-toggle");
+buttons.setAttribute("type","button");
+buttons.setAttribute("data-toggle","dropdown");
+
+ var texto = document.createTextNode("Opciones");
+ buttons.appendChild(texto);
+
+  var span = document.createElement("span")
+  span.setAttribute("class","caret");
+  buttons.appendChild(span);
+
+ var ul = document.createElement("ul")
+ ul.setAttribute("class","dropdown-menu");
 
 
 
-   
+  dev.appendChild(buttons)
+  celda.appendChild(dev);
+
+
+
+
+
+   /*
      celda.appendChild(label)
-
+*/
 
      }
 
@@ -953,7 +982,7 @@ if(i==4)
         dev.appendChild(dav)
         celda.appendChild(dev);
 
-*/
+
 
 
   
@@ -964,7 +993,7 @@ if(i==4)
      
      celda.appendChild(pe);
      
-  
+  */
 
 
   
@@ -977,12 +1006,14 @@ if(i==4)
 
 if(i==5)
      {
+
+      /*
  var textoCelda2 = document.createTextNode("Accionador B");
      celda.appendChild(textoCelda2);
   
      
 
-
+*/
 
 
      }
