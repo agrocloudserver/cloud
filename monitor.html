@@ -7,6 +7,9 @@
     <meta name="author" content="">
     <link rel="icon" href="https://getbootstrap.com/docs/4.0/assets/img/favicons/favicon.ico">
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
+
     <title>Agrocloud</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/starter-template/">
@@ -934,8 +937,8 @@ if(i==3)
 */
 
 
- var dev = document.createElement("div")
-        dev.setAttribute("class","dropdown")
+ var dev = document.createElement("div");
+dev.setAttribute("class","dropdown");
 
  var buttons = document.createElement("button")
         buttons.setAttribute("class","btn btn-primary dropdown-toggle");
@@ -945,20 +948,40 @@ buttons.setAttribute("data-toggle","dropdown");
  var texto = document.createTextNode("Opciones");
  buttons.appendChild(texto);
 
-  var span = document.createElement("span")
+  var span = document.createElement("span");
   span.setAttribute("class","caret");
   buttons.appendChild(span);
 
- var ul = document.createElement("ul")
+ var ul = document.createElement("ul");
  ul.setAttribute("class","dropdown-menu");
 
+ var li = document.createElement("li");
+ var a = document.createElement("a");
+ a.setAttribute("href","centrales.html");
+ a.setAttribute("class","dropdown-item");
+ var texto2 = document.createTextNode("Descargar Datos");
+ a.appendChild(texto2);
+ li.appendChild(a);
 
 
-  dev.appendChild(buttons)
-  celda.appendChild(dev);
+ var li2 = document.createElement("li");
+ var a2 = document.createElement("a");
+ a2.setAttribute("href","#");
+ a2.setAttribute("class","dropdown-item");
+ var texto22 = document.createTextNode("Graficos");
+ a2.appendChild(texto22);
+ li2.appendChild(a2);
 
 
+ ul.appendChild(li);
+ ul.appendChild(li2);
 
+
+dev.appendChild(buttons)
+dev.appendChild(ul)
+
+
+celda.appendChild(dev);
 
 
    /*
@@ -970,6 +993,10 @@ buttons.setAttribute("data-toggle","dropdown");
 
 if(i==4)
      {
+
+
+
+
 
 /*
         var textoCelda3 = document.createTextNode("Accionador B");
