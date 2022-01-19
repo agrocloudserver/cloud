@@ -13,6 +13,11 @@ app.set('views',__dirname+'/');
 
 
 
+// Require library
+var xl = require('excel4node');
+ 
+
+
 
 
 
@@ -30,7 +35,7 @@ var urlencodedParser = bodyParser.urlencoded({extended:true});
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-
+const {spawn} = require('child_process');
 
 
 
@@ -217,10 +222,16 @@ res.send("True")
   );
 
 
+
+var nodo1;
+var nodo1b;
+
+
+
+
 app.post("/crearcentral",function(req,res)
 
 {
-
 
 console.log(req.body.id.toString())
 
@@ -228,12 +239,17 @@ const db = client.db(dbName);
     const collection = db.collection('nodos');
 
   collection.insertOne({id:req.body.id.toString(),Sector:req.body.Sector.toString(),Estado:req.body.Estado.toString()});
-
+const fsPromises = fs.promises;
+  
+fsPromises.mkdir('C:/Users/idcla/Documents/GitHub/propal/Datos/'+req.body.id.toString()).then(function() {
+    console.log('Directory created successfully');
+}).catch(function() {
+    console.log('failed to create directory');
+});
 
 }
 
   );
-
 
 
 app.post("/nodos",function(req,res)
@@ -398,33 +414,84 @@ console.log("peticion recibida")
 
 
 
+app.post("/single",function(req,res)
+
+{
+console.log("hola");
+
+res.download(req.body.id);
+console.log(req.body.id)
+}
+
+  );
+
+
+
+
+
+app.post("/basededatos",function(req,res)
+
+{
+
+const db = client.db(dbName);
+console.log(req.body.central);
+
+
+const collection = db.collection("directorios"+req.body.central);
+
+collection.find({}).toArray(function(err, docs) {
+    assert.equal(err, null);
+    console.log("Found the following records");
+    //console.log(docs)
+res.send(docs)
+  });
+
+console.log("peticion recibida")
+
+
+
+}
+
+  );
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 var mqtt = require('mqtt')
-var client2  = mqtt.connect('mqtt://192.168.43.42:1883')
+var client2  = mqtt.connect('mqtt://192.168.1.7:1883')
  
 client2.on('connect', function () {
 
   client2.subscribe('nodo1', function (err) {
     if (!err) {
-      client2.publish('nodo1', 'Hello mqtt')
+     // client2.publish('nodo1', 'Hello mqtt')
     }
   })
 
 client2.subscribe('nodo2', function (err) {
     if (!err) {
-      client2.publish('nodo2', 'Hello mqtt')
+      //client2.publish('nodo2', 'Hello mqtt')
     }
   })
 
 })
 
 
-client2.on('message', function (topic, message) {
+client2.on('message', function (topic, message , nodo1 , nodo1b) {
   // message is Buffer
- var date = new Date();
-var current_hour = date.getHours();
+
+
 
 for (let i = 0; i <centrales.length; i++) {
    if(topic==centrales[i])
@@ -435,21 +502,25 @@ const db = client.db(dbName);
   // Insert some documents
 
   var fecha= new Date();
- var hora_actual = fecha.getHours();
+ var hora_actual = Date.now();
 
 
-  collection.insertOne({lectura:message.toString(),fecha: current_hour});
+var dateTime = require('node-datetime');
+var dt = dateTime.create();
+var formatted = dt.format('d-m-Y');
+console.log(formatted);
+
+var dateTime = require('node-datetime');
+var dt = dateTime.create();
+var formatted2 = dt.format('H-M-S');
+console.log(formatted2);
+
+  collection.insertOne({lectura:message.toString(),fecha: formatted,hora:formatted2});
+
+
 }
 
 }
-
-
-
-
-
-
-
-
 
 
 })
@@ -457,13 +528,129 @@ const db = client.db(dbName);
 
 
 
+
+app.post("/generar",function(req,res)
+
+{
+cantidad=300;
+console.log(req.body.central);
+
+
+var dateTime = require('node-datetime');
+var dt = dateTime.create();
+var formatted = dt.format('d-m-Y-H-M-S');
+console.log(formatted);
+
+
+const mongodb = require("mongodb").MongoClient;
+const fastcsv = require("fast-csv");
+const fs = require("fs");
+
+var formatted2 = dt.format('d-m-Y');
+
+const ws = fs.createWriteStream("C:/Users/idcla/Documents/GitHub/propal/Datos/"+req.body.central+"/"+formatted+".csv");
+
+
+// let url = "mongodb://username:password@localhost:27017/";
+
+
+
+
+client.connect(function(err) {
+  assert.equal(null, err);
+  console.log("Connected successfully to server");
+
+
+
+
+
+  const db = client.db(dbName);
+  const collection = db.collection('directorios'+req.body.central);
+
+collection.insertOne({id:req.body.central,date:formatted,dir:"C:/Users/idcla/Documents/GitHub/propal/Datos/"+req.body.central+"/"+formatted+"f"+".xlsx"});
+
+
+
+
+
+
+
+// Node.js program to demonstrate 
+// the fsPromises.mkdir() Method 
+    
+// Include fs and path module 
+mongodb.connect(
+  url,
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  (err, client) => {
+    if (err) throw err;
+
+    client
+      .db("myproject")
+      .collection(req.body.central)
+      .find({ "fecha" : formatted2})
+      .toArray((err, data) => {
+        if (err) throw err;
+
+        console.log(data.length);
+        cantidad=data.length;
+        mandar(cantidad)
+
+
+        fastcsv
+          .write(data, { headers: true})
+          .on("finish", function() {
+            console.log("Exportación lista");
+          })
+          .pipe(ws);
+
+     
+      
+
+
+      });
+
+
+
+
+
+  }
+);
+
+});
+
+
+
+
+function mandar(cantidad)
+{
+var python = spawn('python', ['C:/Users/idcla/Documents/GitHub/propal/formato.py',formatted,req.body.central,cantidad.toString()]);
+
+var dataToSend;
+
+ // spawn new child process to call the python script
+
+ // collect data from script
+ python.stdout.on('data', function (data) {
+  console.log('Pipe data from python script ...');
+  dataToSend = data.toString();
+ });
+ // in close event we are sure that stream from child process is closed
+
+
+  python.on('close', (code) => {
+ console.log(`child process close all stdio with code ${code}`);
+ // send data to browser
+    client.close();
+ //res.send(dataToSend)
+ });
+
+}
+
  
+}
 
-
-
-
-
-
+  );
 
 
 

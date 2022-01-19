@@ -7,6 +7,10 @@
     <meta name="author" content="">
     <link rel="icon" href="https://getbootstrap.com/docs/4.0/assets/img/favicons/favicon.ico">
 
+   
+
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 
 
@@ -35,7 +39,7 @@
 
           
           <li class="nav-item active">
-            <a class="nav-link" href="/caudalimetros.html">Monitor<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/monitor.html">Monitor<span class="sr-only">(current)</span></a>
           </li>
 
 
@@ -52,7 +56,7 @@
 
 
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Agregar Central</a>
+          <a class="dropdown-item" href="Registro_Centrales.html">Agregar Central</a>
           <a class="dropdown-item" href="#">Agregar Usuario</a>
           <div class="dropdown-divider"></div>
           <!--
@@ -64,7 +68,7 @@
       </li>
       
     <li class="nav-item">
-            <a class="nav-link" href="/index.html">Cerrar Sesión</a>
+            <a class="nav-link" href="/login.html">Cerrar Sesión</a>
           </li>
         </ul>
       
@@ -84,8 +88,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="./Starter Template for Bootstrap_files/jquery-3.2.1.slim.min.js.descarga" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="./Starter Template for Bootstrap_files/popper.min.js.descarga"></script>
-    <script src="./Starter Template for Bootstrap_files/bootstrap.min.js.descarga"></script>
+
    
 
 
@@ -912,7 +915,7 @@ if(i==1)
 if(i==2)
      {
 
-        var textoCelda2 = document.createTextNode("Accionador A");
+        var textoCelda2 = document.createTextNode("Detalle");
      celda.appendChild(textoCelda2);
 
 
@@ -936,12 +939,17 @@ if(i==3)
 
 */
 
-
+/*
  var dev = document.createElement("div");
-dev.setAttribute("class","dropdown");
+ dev.setAttribute("id","drop2");
+dev.setAttribute("class","btn-group dropup");
 
  var buttons = document.createElement("button")
         buttons.setAttribute("class","btn btn-primary dropdown-toggle");
+buttons.setAttribute("aria-haspopup","true");
+buttons.setAttribute("aria-expanded","false");
+       
+        //buttons.setAttribute("id","drop");
 buttons.setAttribute("type","button");
 buttons.setAttribute("data-toggle","dropdown");
 
@@ -958,6 +966,7 @@ buttons.setAttribute("data-toggle","dropdown");
  var li = document.createElement("li");
  var a = document.createElement("a");
  a.setAttribute("href","centrales.html");
+ a.setAttribute("id",item);
  a.setAttribute("class","dropdown-item");
  var texto2 = document.createTextNode("Descargar Datos");
  a.appendChild(texto2);
@@ -966,8 +975,10 @@ buttons.setAttribute("data-toggle","dropdown");
 
  var li2 = document.createElement("li");
  var a2 = document.createElement("a");
- a2.setAttribute("href","#");
  a2.setAttribute("class","dropdown-item");
+ a2.setAttribute("id",item);
+ a2.setAttribute("href","#");
+  a2.setAttribute("onClick","abrir2(this.id)");
  var texto22 = document.createTextNode("Graficos");
  a2.appendChild(texto22);
  li2.appendChild(a2);
@@ -983,12 +994,100 @@ dev.appendChild(ul)
 
 celda.appendChild(dev);
 
+*/
+
+
+
 
    /*
      celda.appendChild(label)
 */
 
+
+/*
+$("#drop2").on("shown.bs.dropdown", function(event){
+  var x = $(event.relatedTarget).text(); // Get the text of the element
+  alert(x);
+
+});
+*/
+
+
+
+
+
+
+ 
+var ul = document.createElement("ul");
+
+ var li = document.createElement("li");
+
+ var a1 = document.createElement("a");
+ a1.setAttribute("id",item);
+ a1.setAttribute("href","#");
+  a1.setAttribute("onClick","abrir2(this.id)");
+
+ var texto22 = document.createTextNode("Grafico");
+a1.appendChild(texto22);
+
+ li.appendChild(a1)
+
+
+
+ var li2 = document.createElement("li");
+ li2.setAttribute("href","centrales.html");
+ var texto33 = document.createTextNode("Base de datos");
+ li2.setAttribute("id",respuesta[item].id);
+ li2.setAttribute("onclick","getPaging(this.id)")
+ li2.appendChild(texto33)
+
+
+ var a2 = document.createElement("a");
+ a2.setAttribute("id",item);
+ a2.setAttribute("href","centrales.html");
+
+ a2.appendChild(texto33);
+
+ li2.appendChild(a2)
+
+
+var ul3 = document.createElement("ul");
+
+ var li3 = document.createElement("li");
+
+ var a13 = document.createElement("a");
+ a13.setAttribute("id",item);
+ a13.setAttribute("href","#");
+  a13.setAttribute("onClick","abrir2(this.id)");
+
+ var texto223 = document.createTextNode("Información");
+a13.appendChild(texto223);
+
+ li3.appendChild(a13)
+
+
+
+
+
+
+
+
+
+ ul.appendChild(li)
+  ul.appendChild(li2)
+  ul.appendChild(li3)
+ 
+ 
+
+
+
+
+ celda.appendChild(ul)
+
+
+
      }
+
 
 
 if(i==4)
@@ -1025,9 +1124,7 @@ if(i==4)
 
   
 
-     
   
-
      }
 
 
@@ -1182,6 +1279,21 @@ detalles.appendChild(textoCelda3)
 
 
 </script>
+
+  
+<script>
+
+function getPaging(str) {
+   localStorage.setItem("dato",str);
+  alert(str);
+  $("#loading-content").load("dataSearch.php?"+str, hideLoader);
+ 
+}
+
+</script>
+
+
+
 
 
 <script src="/mqtt.js"></script>
@@ -2246,10 +2358,10 @@ var value = select.options[select.selectedIndex].value;
 
          //-->
 
-  function alerta()
+  function alerta(x)
   {
 
-    alert("holiwis");
+    alert(x);
   }
       </script>
 

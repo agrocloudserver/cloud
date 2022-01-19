@@ -32,17 +32,10 @@
           </li>
 
 
-          <li class="nav-item active">
-
-           <a class="nav-link" href=""></a>
-
-
-          </li>
-            
 
            <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Configuracion
+          Menu
         </a>
 
 
@@ -62,7 +55,13 @@
             <a class="nav-link" href="/index.html">Cerrar Sesión</a>
           </li>
         </ul>
-       
+
+        <!--
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      -->
       </div>
     </nav>
 
@@ -115,7 +114,11 @@
 
 
 
+<script type="text/javascript">
+  
+alert(localStorage.getItem("dato"));
 
+</script>
 
 
 
@@ -193,8 +196,9 @@
     }
   </style>
 </head>
-<body>
 
+
+<body>
 
 
 </body>
@@ -209,6 +213,65 @@
 <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
 
 <table id="table"></table>
+
+<button class="button button1" onclick="abrir()";>Generar Archivo </button>
+
+
+
+
+
+
+<script>
+
+function abrir()
+{
+
+$( document ).ready(function() {
+
+  $.ajax({
+    url:'/generar',
+    method:'POST',
+    data: {'central':localStorage.getItem("dato")},
+    beforeSend: function(data){
+      console.log('Enviando...',data)
+    },
+
+
+  }).done(function(respuesta){
+
+    const numero = respuesta.length;
+    let nombres = respuesta;
+    const canales=[];
+
+    console.log('Respuesta recibida:',respuesta)
+    console.log(respuesta)
+    console.log(respuesta.length)
+ 
+   //console.log(numero);
+
+   
+}).fail(function(err){
+    console.log(err)
+    
+
+  }
+
+    )
+//console.log(canales);
+
+ alert("Descargando información del usuario")
+
+
+});
+location.reload();
+}
+
+ 
+</script>
+
+
+
+
 
 
 
@@ -242,15 +305,17 @@
 
 $( document ).ready(function() {
 
+
 var jsarray = JSON.parse(sessionStorage.getItem("jsArray"));
 
 console.log(jsarray);
 
-  $.ajax({
-    url: "/nodos",
+
+$.ajax({
+    url:'/basededatos',
     method:'POST',
-    datatype:"JSON",
-    contentType: "application/json",
+    data: {'central':localStorage.getItem("dato")},
+
     beforeSend: function(data){
       console.log('Enviando...',data)
     },
@@ -304,12 +369,11 @@ $('#table').bootstrapTable({
 
 $( document ).ready(function() {
 
-
-  $.ajax({
-    url:'/nodos',
+$.ajax({
+    url:'/basededatos',
     method:'POST',
-    datatype:"JSON",
-    contentType: "application/json",
+    data: {'central':localStorage.getItem("dato")},
+
     beforeSend: function(data){
       console.log('Enviando...',data)
     },
@@ -325,305 +389,45 @@ $( document ).ready(function() {
     console.log(respuesta)
     console.log(respuesta.length)
  
-   //console.log(numero);
-
    
+var detalles = document.createElement("form");
 
-for ( var item = 0; item < 1 ; item++) {
+detalles.setAttribute("action","/single")
 
+//detalles.setAttribute("id",item)
 
-//botón 1
-var newContent1 = document.createTextNode("ON");
-var newContent2 = document.createTextNode("OFF");
+detalles.setAttribute("method","POST")
+detalles.setAttribute("id" , "myForm")
 
- var check= document.createElement("input");
-            check.setAttribute('type', "checkbox")
-            check.setAttribute('id',"A")
-             check.setAttribute('onchange', "doalert(this)")
+var put = document.createElement("input");
+put.setAttribute("type","hidden")
+put.setAttribute("id","hiddenField")
+put.setAttribute("name","id")
+put.setAttribute("value",row.dir.toString());
 
-            var label=document.createElement("label")
-            label.setAttribute('id' , "sliderLabel")
+detalles.appendChild(put)
+var baton = document.createElement("button");
+baton.setAttribute("type","submit")
+//detalles.setAttribute("id",item)
+//detalles.setAttribute("method","get")
+var textoCelda4 = document.createTextNode("Descargar Archivo");
 
 
-             var spa=document.createElement("span")
-               var spa2=document.createElement("span")
 
+baton.appendChild(textoCelda4)
 
-               spa2.setAttribute('id',"sliderOn")
-               spa2.appendChild(newContent1)
+detalles.appendChild(baton)
 
 
-                 var spa3=document.createElement("span")
-                 spa3.setAttribute('id',"sliderOff")
-                 spa3.appendChild(newContent2)
-                 var spa4=document.createElement("span")
-                 spa4.setAttribute('id',"sliderBlock")
 
 
-             spa.setAttribute('id',"slider")
-             spa.appendChild(spa2)
-             spa.appendChild(spa3)
-             spa.appendChild(spa4)
-
-             label.appendChild(check)
-             label.appendChild(spa)
-
-           
-
-//boton2
-
-var newContent3 = document.createTextNode("ON");
-var newContent4 = document.createTextNode("OFF");
-
- var check2= document.createElement("input");
-            check2.setAttribute('type', "checkbox")
-            check2.setAttribute('id',"B")
-             check2.setAttribute('onchange', "doalert(this)")
-
-
-            var label2=document.createElement("label")
-            label2.setAttribute('id' , "sliderLabel")
-
-
-             var spo=document.createElement("span")
-               var spo2=document.createElement("span")
-
-
-               spo2.setAttribute('id',"sliderOn")
-               spo2.appendChild(newContent3)
-
-
-                 var spo3=document.createElement("span")
-                 spo3.setAttribute('id',"sliderOff")
-                 spo3.appendChild(newContent4)
-                 var spo4=document.createElement("span")
-                 spo4.setAttribute('id',"sliderBlock")
-
-
-             spo.setAttribute('id',"slider")
-             spo.appendChild(spo2)
-             spo.appendChild(spo3)
-             spo.appendChild(spo4)
-
-             label2.appendChild(check2)
-             label2.appendChild(spo)
-
-
-
-            var canv = document.createElement("canvas");
-            
-            var division= document.createElement("div");
-            division.setAttribute("style" , "float: left")
-
-
-
-           
-
-            var salto= document.createElement("br")
-            var porte= document.createElement("h1")
-
-
-            var newContent3 = document.createTextNode("respuesta[item].id");
-            porte.appendChild(newContent3)
-            
-
-
-
-            document.body.appendChild(division)
-
-               
-            canv.setAttribute('width', 500);
-            canv.setAttribute('height', 500);
-
-            canv.setAttribute('id', "hola");
-  
-           
-
-
-
-
-
- // Obtener la referencia del elemento body
-  var body = document.getElementsByTagName("body")[0];
-
-  // Crea un elemento <table> y un elemento <tbody>
-  var tabla   = document.createElement("table");
-  var tblBody = document.createElement("tbody");
-
-  // Crea las celdas
-  for (var i = 0; i < 8; i++) {
-    // Crea las hileras de la tabla
-    var hilera = document.createElement("tr");
-
-    for (var j = 0; j < 1; j++) {
-      // Crea un elemento <td> y un nodo de texto, haz que el nodo de
-      // texto sea el contenido de <td>, ubica el elemento <td> al final
-      // de la hilera de la tabla
-      var celda = document.createElement("td");
-     // var textoCelda = document.createTextNode("celda en la hilera "+i+", columna "+j);
-      //celda.appendChild(textoCelda);
-      hilera.appendChild(celda);
-
-
-     if(i==0)
-     {
-
-     var textoCelda = document.createTextNode(respuesta[item].id);
-     celda.appendChild(textoCelda);
-     
-     }
-
-
-if(i==1)
-     {
-
-     var textoCelda = document.createTextNode("");
-     celda.appendChild(textoCelda);
-      celda.appendChild(canv)
-      celda.appendChild(textoCelda);
-
-     }
-
-
-if(i==2)
-     {
-
-        var textoCelda2 = document.createTextNode("Accionador A");
-     celda.appendChild(textoCelda2);
-
-     
-
-     }
-
-
-if(i==3)
-     {
-
-      
-     celda.appendChild(label)
-
-     }
-
-
-if(i==4)
-     {
-
-        var textoCelda3 = document.createTextNode("Accionador B");
-     celda.appendChild(textoCelda3);
-
-     
-
-     }
-
-
-if(i==5)
-     {
-
-      
-     celda.appendChild(label2)
-
-
-
-     }
-
-if(i==6)
-     {
-
-
-   var detalles = document.createElement("button");
-   detalles.setAttribute("class","button button1")
-   detalles.setAttribute("id",item)
-   detalles.setAttribute("onclick","abrir1(this.id)")
-
-
-   var textoCelda3 = document.createTextNode("Especificaciones");
-detalles.appendChild(textoCelda3)
-
-
-
-   celda.appendChild(detalles)
-     
-   var detalles = document.createElement("button");
-   detalles.setAttribute("class","button button1")
-   detalles.setAttribute("id",item)
-   detalles.setAttribute("onclick","abrir2(this.id)")
-
-
-
-   var textoCelda3 = document.createTextNode("Lecturas");
-detalles.appendChild(textoCelda3)
-
-
-
-   celda.appendChild(detalles)
-
-
-
- 
-
-     }
-     if(i==7)
-
-     {
-
-  var detalles = document.createElement("button");
-   detalles.setAttribute("class","button button1")
-   detalles.setAttribute("id",item)
-   detalles.setAttribute("onclick","abrir3(this.id)")
-
-
-   var textoCelda3 = document.createTextNode("Programación");
-detalles.appendChild(textoCelda3)
-
-
-
-   celda.appendChild(detalles)
-
-
-   var detalles = document.createElement("button");
-   detalles.setAttribute("class","button button1")
-   detalles.setAttribute("id",item)
-   detalles.setAttribute("onclick","abrir3(this.id)")
-
-
-   var textoCelda3 = document.createTextNode("Editar");
-detalles.appendChild(textoCelda3)
-
-
-
-   celda.appendChild(detalles)
-
-
-     }
-
-
-
-    }
-
-    // agrega la hilera al final de la tabla (al final del elemento tblbody)
-    tblBody.appendChild(hilera);
-  }
-
-
-
-  // posiciona el <tbody> debajo del elemento <table>
-  tabla.appendChild(tblBody);
-  // appends <table> into <body>
-  body.appendChild(tabla);
-  // modifica el atributo "border" de la tabla y lo fija a "2";
-  tabla.setAttribute("border", "2");
-
-
-    //division.appendChild(label);
+  //division.appendChild(label);
     var ubi=document.getElementById("ventana")
-    ubi.appendChild(tabla)
+    while (ubi.firstChild) {
+  ubi.removeChild(ubi.firstChild);
+}
 
-        }
-
-
-
-   comu();
-
+    ubi.appendChild(detalles)
 
 }).fail(function(err){
     console.log(err)
@@ -640,19 +444,6 @@ detalles.appendChild(textoCelda3)
 });
 
 
-
-
-function comu(canales,numero)
-{
-var gauge = new RadialGauge({ renderTo: "hola" ,width: 300,
-    height: 230, id:"holis"}).draw()
-
-}
-
-
-
-
-
 /*
     document.getElementById("nom").innerHTML = row.id;
 
@@ -663,7 +454,7 @@ document.getElementById("estatus").innerHTML = row.Estado;
       modal.style.display = "block";
 
 
-    alert("holaa"+row.id.toString())
+    alert("holaa"+row.dir.toString())
                     $('.info').removeClass('info');
                     $($element).addClass('info');
                 }, 
@@ -674,11 +465,11 @@ document.getElementById("estatus").innerHTML = row.Estado;
     field: 'id',
     title: 'id'
   }, {
-    field: 'Sector',
-    title: 'Sector'
+    field: 'date',
+    title: 'Fecha Actualización  '
   }, {
-    field: 'Estado',
-    title: 'Estado'
+    field: 'dir',
+    title: 'Directorio'
   }],data: respuesta.reverse()
   
 })
@@ -696,7 +487,6 @@ document.getElementById("estatus").innerHTML = row.Estado;
 
  alert("Base de datos descargada")
 });
-
 
 
 

@@ -24,7 +24,7 @@ const options = {
 }
 
 
-const host = 'ws://192.168.43.42:9001' 
+const host = 'ws://192.168.153.36:9001' 
 
 
 console.log('Connecting mqtt client')
@@ -408,6 +408,8 @@ chart.setAttribute("id","myChart")
 
 select.appendChild(chart)
 
+
+/*
 var slider= document.createElement("input");
 slider.setAttribute("type","range");
 slider.setAttribute("min","1");
@@ -432,16 +434,7 @@ select.appendChild(slider)
 
 
    
-var detalles = document.createElement("button");
-detalles.setAttribute("class","button button1")
-detalles.setAttribute("id","hola")
-detalles.setAttribute("onclick","limpiar(myChart)")
 
-
-var textoCelda3 = document.createTextNode("Limpiar");
-detalles.appendChild(textoCelda3)
-
-select.appendChild(detalles)
 
 
 
@@ -459,8 +452,17 @@ slider.oninput = function() {
   output.innerHTML = this.value;
 }
 
+*/
+var detalles = document.createElement("button");
+detalles.setAttribute("class","button button1")
+detalles.setAttribute("id","hola")
+detalles.setAttribute("onclick","limpiar(myChart)")
 
 
+var textoCelda3 = document.createTextNode("Limpiar");
+detalles.appendChild(textoCelda3)
+
+select.appendChild(detalles)
 
  alert("Base de datos descargada")
 
