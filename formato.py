@@ -1,6 +1,8 @@
 
-# importing the modules
-from IPython.display import display
+
+
+
+
 
 import pandas as pd
 
@@ -46,16 +48,16 @@ a=sys.argv[1]
 b=sys.argv[2]
 c=sys.argv[3]
 
-csv = pd.read_csv(r'C:/Users/idcla/Documents/GitHub/propal/datos/'+sys.argv[2]+'/'+a+'.csv')
+csv = pd.read_csv(r'/root/propal/Datos/'+sys.argv[2]+'/'+a+'.csv')
 
 df = pd.DataFrame(csv)
   
 # displaying the DataFrame
-display(df)
+#display(df)
 
 
 # create excel writer object
-writer = pd.ExcelWriter('C:/Users/idcla/Documents/GitHub/propal/datos/'+sys.argv[2]+'/'+a+'.xlsx')
+writer = pd.ExcelWriter(r'/root/propal/Datos/'+sys.argv[2]+'/'+a+'.xlsx')
 # write dataframe to excel
 df.to_excel(writer)
 # save the excel
@@ -79,7 +81,7 @@ sheet = wb.active
 
  
 # Give the location of the file
-path = "C:/Users/idcla/Documents/GitHub/propal/Datos/"+sys.argv[2]+'/'+a+'.xlsx'
+path = "/root/propal/Datos/"+sys.argv[2]+'/'+a+'.xlsx'
  
 # To open the workbook
 # workbook object is created
@@ -182,7 +184,7 @@ chart.set_categories(dates)
 ws.add_chart(chart, "E2")
 
 
-wb.save("C:/Users/idcla/Documents/GitHub/propal/Datos/"+sys.argv[2]+'/'+a+"f"+'.xlsx')
+wb.save("/root/propal/Datos/"+sys.argv[2]+'/'+a+"f"+'.xlsx')
 
 
 

@@ -469,7 +469,7 @@ console.log("peticion recibida")
 
 
 var mqtt = require('mqtt')
-var client2  = mqtt.connect('mqtt://192.168.1.7:1883')
+var client2  = mqtt.connect('mqtt://204.48.20.11:1884')
  
 client2.on('connect', function () {
 
@@ -528,7 +528,6 @@ console.log(formatted2);
 
 
 
-
 app.post("/generar",function(req,res)
 
 {
@@ -548,10 +547,10 @@ const fs = require("fs");
 
 var formatted2 = dt.format('d-m-Y');
 
-const ws = fs.createWriteStream("C:/Users/idcla/Documents/GitHub/propal/Datos/"+req.body.central+"/"+formatted+".csv");
+const ws = fs.createWriteStream("/root/propal/Datos/"+req.body.central+"/"+formatted+".csv");
 
-
-// let url = "mongodb://username:password@localhost:27017/";
+ let url = "mongodb://localhost:27017/";
+ 
 
 
 
@@ -567,7 +566,7 @@ client.connect(function(err) {
   const db = client.db(dbName);
   const collection = db.collection('directorios'+req.body.central);
 
-collection.insertOne({id:req.body.central,date:formatted,dir:"C:/Users/idcla/Documents/GitHub/propal/Datos/"+req.body.central+"/"+formatted+"f"+".xlsx"});
+collection.insertOne({id:req.body.central,date:formatted,dir:"/root/propal/Datos/"+req.body.central+"/"+formatted+"f"+".xlsx"});
 
 
 
@@ -619,12 +618,10 @@ mongodb.connect(
 
 });
 
-
-
-
 function mandar(cantidad)
 {
-var python = spawn('python', ['C:/Users/idcla/Documents/GitHub/propal/formato.py',formatted,req.body.central,cantidad.toString()]);
+
+var python = spawn('python3', ['/root/propal/formato.py',formatted,req.body.central,cantidad.toString()]);
 
 var dataToSend;
 
