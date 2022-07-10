@@ -9,8 +9,6 @@
 
    
 
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 
 
@@ -133,48 +131,6 @@ body, html {
 
 </style>
 
-
-
-
-
-<script type="text/javascript">
-
-/*  
-// Set the date we're counting down to
-var countDownDate = new Date("Aug 12, 2021 15:37:25").getTime();
-
-// Update the count down every 1 second
-var x = setInterval(function() {
-
-  // Get today's date and time
-  var now = new Date().getTime();
-    
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-    
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-  // Output the result in an element with id="demo"
-  document.getElementById("demo").innerHTML = days + "d " + hours + ":"
-  + minutes + ":" + seconds;
-    
-  // If the count down is over, write some text 
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
-  }
-}, 1000);
-
-*/
-</script>
-
-
-
-
 <div class="hero-image">
   <div class="hero-text">
   
@@ -215,112 +171,6 @@ var x = setInterval(function() {
   <script src="./simplepicker_ Material Inspired Date &amp; Time Picker Example_files/simplepicker.js.descarga"></script>
 
 
-
-
-  <script>
-    let simplepicker = new SimplePicker({
-      zIndex: 10
-    });
-
-
-    const $button = document.querySelector('button');
-    const $eventLog = document.querySelector('.event-log');
-
-
-    $button.addEventListener('click', (e) => {
-     // simplepicker.open();
-    });
-
-    // $eventLog.innerHTML += '\n\n';
-    simplepicker.on('submit', (date, readableDate) => {
-     // $eventLog.innerHTML += readableDate + '\n';
-
-
-var div = document.getElementById('eventos');
-
-//div.innerHTML += readableDate + '\n\n';
-//load(); 
-
-insertar(readableDate);
-
-
-
-
-   console.log(readableDate)
-
-
-    });
-
-    simplepicker.on('close', (date) => {
-      //$eventLog.innerHTML += 'Picker Closed'  + '\n';
-
-
-    });
-  </script>
-
-
-
-
-<div class="simplepicker-wrapper" style="z-index: 10;">
-  <div class="simpilepicker-date-picker">
-    <div class="simplepicker-day-header">Sunday</div>
-      <div class="simplepicker-date-section">
-        <div class="simplepicker-month-and-year">July 2021</div>
-        <div class="simplepicker-date">25th</div>
-        <div class="simplepicker-select-pane">
-          <button class="simplepicker-icon simplepicker-icon-calender active" title="Select date from calender!"></button>
-          <div class="simplepicker-time simplepicker-fade">12:00 PM</div>
-          <button class="simplepicker-icon simplepicker-icon-time" title="Select time"></button>
-        </div>
-      </div>
-      <div class="simplepicker-picker-section">
-        <div class="simplepicker-calender-section">
-          <div class="simplepicker-month-switcher simplepicker-select-pane">
-            <button class="simplepicker-icon simplepicker-icon-previous"></button>
-            <div class="simplepicker-selected-date">July 2021</div>
-            <button class="simplepicker-icon simplepicker-icon-next"></button>
-          </div>
-          <div class="simplepicker-calender">
-            <table>
-              <thead>
-                <tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>
-              </thead>
-              <tbody>
-                <tr><td data-empty=""></td><td data-empty=""></td><td data-empty=""></td><td data-empty=""></td><td>1</td><td>2</td><td>3</td></tr><tr><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr><tr><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td></tr><tr><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td></tr><tr><td class="active">25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td></tr><tr><td data-empty=""></td><td data-empty=""></td><td data-empty=""></td><td data-empty=""></td><td data-empty=""></td><td data-empty=""></td><td data-empty=""></td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="simplepicker-time-section">
-          <input type="time" value="12:00" autofocus="false">
-        </div>
-      </div>
-      <div class="simplepicker-bottom-part">
-        <button class="simplepicker-cancel-btn simplepicker-btn" title="Cancel">Cancel</button>
-        <button class="simplepicker-ok-btn simplepicker-btn" title="OK">OK</button>
-      </div>
-  </div>
-</div>
-
-
-
-</body>
-
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
 
 
@@ -351,6 +201,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
+  max-width: 2000;
+   max-height: 2000;
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
@@ -363,7 +215,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
   margin: auto;
   padding: 0;
   border: 1px solid #888;
-  width: 80%;
+  width: fit-content;
+  height:  fit-content;
+ max-width: 2000;
+   max-height: 2000;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
@@ -403,7 +258,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
   color: white;
 }
 
-.modal-body {padding: 2px 16px;}
+.modal-body {padding: 2px 16px;
+}
 
 .modal-footer {
   padding: 2px 16px;
@@ -411,6 +267,84 @@ body {font-family: Arial, Helvetica, sans-serif;}
   color: white;
 }
 </style>
+
+
+
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal2 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content2 {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header2 {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer2 {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+</style>
+
+
 
 
 
@@ -561,9 +495,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $( document ).ready(function() {
 
-
-
-
   $.ajax({
     url:'/nodos',
     method:'POST',
@@ -588,165 +519,7 @@ $( document ).ready(function() {
 
    
 
- var x=[];
 
-
-
-
-// Set the date we're counting down to
-
- var countDownDate=[];
- countDownDate[0] = new Date("Dec 12, 2021 15:45:25").getTime();
-  countDownDate[1] = new Date("Aug 15, 2022 15:37:25").getTime();
- 
-    
-
-
-var countDownDate2=[];
- countDownDate2[0] = new Date("Dec 25, 2021 15:45:25").getTime();
-  countDownDate2[1] = new Date("Aug 15, 2022 15:37:25").getTime();
-
-
-
-
-
-// Update the count down every 1 second
- x[0] = setInterval(function() {
-
-  for ( var item = 0; item < numero; item++) {
-
-  // Get today's date and time
-  var now = new Date().getTime();
-    
-  // Find the distance between now and the count down date
-  var distance = countDownDate[item]- now;
-  var distance2 = countDownDate2[item]- now;
-    
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-
-    var days2 = Math.floor(distance2 / (1000 * 60 * 60 * 24));
-  var hours2 = Math.floor((distance2 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes2 = Math.floor((distance2 % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds2 = Math.floor((distance2 % (1000 * 60)) / 1000);
-    
-  // Output the result in an element with id="demo"
-  var tome=days + "d " + hours + ":"
-  + minutes + ":" + seconds;
-
-  // Output the result in an element with id="demo"
-  var tome2=days2 + "d " + hours2 + ":"
-  + minutes2 + ":" + seconds2;
-
-
-var textnode = document.createTextNode(tome);
-
-var textnode2 = document.createTextNode(tome2);
-
-
-
-var select = document.getElementById("demo"+respuesta[item].id);
-
-var select2 = document.getElementById("demo2"+respuesta[item].id);
-
-
-
-   var detalles = document.createElement("button");
-   detalles.setAttribute("class","")
-   detalles.setAttribute("id",item)
-   detalles.setAttribute("onclick","abrir3(this.id)")
-
-
-   var textoCelda3 = document.createTextNode("Imagen");
-detalles.appendChild(textnode)
-
-
-var detalles2 = document.createElement("button");
-   detalles2.setAttribute("class","")
-   detalles2.setAttribute("id",item)
-   detalles2.setAttribute("onclick","abrir3(this.id)")
-
-
-   var textoCelda4 = document.createTextNode("Imagen");
-detalles2.appendChild(textnode2)
-
-
-
-
-while (select.firstChild) {
-  select.removeChild(select.firstChild);
-}
-
-
-while (select2.firstChild) {
-  select2.removeChild(select2.firstChild);
-}
-
-
-
-
-  document.getElementById("demo"+respuesta[item].id).appendChild(detalles);
-  document.getElementById("demo2"+respuesta[item].id).appendChild(detalles2);
-
-  // If the count down is over, write some text 
-  if (distance < 0) {
-
-while (select.firstChild) {
-  select.removeChild(select.firstChild);
-}
-
-
-var textnode = document.createTextNode("Programar");
-   var select = document.getElementById("demo"+respuesta[item].id);
-
-var ido=respuesta[item].id;
-
-   var detalles = document.createElement("button");
-   detalles.setAttribute("class","")
-   detalles.setAttribute("id",respuesta[item].id)
-   detalles.setAttribute("onclick","abrir3(this.id)")
-
-
-
-
-  
-detalles.appendChild(textnode)
-    document.getElementById("demo"+respuesta[item].id).appendChild(detalles);
-  }
-
-    if (distance2 < 0) {
-
-while (select2.firstChild) {
-  select2.removeChild(select2.firstChild);
-}
-
-
-var textnode = document.createTextNode("Programar");
-   var select2 = document.getElementById("demo2"+respuesta[item].id);
-
-
-
-   var detalles2 = document.createElement("button");
-   detalles2.setAttribute("class","")
-   detalles2.setAttribute("id",respuesta[item].id)
-   detalles2.setAttribute("onclick","abrir3(this.id)")
-
-
-
-
-  
-detalles2.appendChild(textnode)
-    document.getElementById("demo2"+respuesta[item].id).appendChild(detalles2);
-  }
-
-
-}
-
-}, 1000);
 
 
 
@@ -755,82 +528,17 @@ for ( var item = 0; item < numero ; item++) {
 
 copia(respuesta[item]);
 
-//botón 1
-var newContent1 = document.createTextNode("ON");
-var newContent2 = document.createTextNode("OFF");
-
- var check= document.createElement("input");
-            check.setAttribute('type', "checkbox")
-            check.setAttribute('id', ":"+respuesta[item].id+"/A")
-             check.setAttribute('onchange', "doalert(this)")
-
-            var label=document.createElement("label")
-            label.setAttribute('id' , "sliderLabel")
-
-
-             var spa=document.createElement("span")
-               var spa2=document.createElement("span")
-
-
-               spa2.setAttribute('id',"sliderOn")
-               spa2.appendChild(newContent1)
-
-
-                 var spa3=document.createElement("span")
-                 spa3.setAttribute('id',"sliderOff")
-                 spa3.appendChild(newContent2)
-                 var spa4=document.createElement("span")
-                 spa4.setAttribute('id',"sliderBlock")
-
-
-             spa.setAttribute('id',"slider")
-             spa.appendChild(spa2)
-             spa.appendChild(spa3)
-             spa.appendChild(spa4)
-
-             label.appendChild(check)
-             label.appendChild(spa)
 
            
 
-//boton2
-
-var newContent3 = document.createTextNode("ON");
-var newContent4 = document.createTextNode("OFF");
-
- var check2= document.createElement("input");
-            check2.setAttribute('type', "checkbox")
-            check2.setAttribute('id', respuesta[item].id+"/B")
-             check2.setAttribute('onchange', "doalert(this)")
-            
 
 
-            var label2=document.createElement("label")
-            label2.setAttribute('id' , "sliderLabel")
 
 
-             var spo=document.createElement("span")
-               var spo2=document.createElement("span")
 
 
-               spo2.setAttribute('id',"sliderOn")
-               spo2.appendChild(newContent3)
 
 
-                 var spo3=document.createElement("span")
-                 spo3.setAttribute('id',"sliderOff")
-                 spo3.appendChild(newContent4)
-                 var spo4=document.createElement("span")
-                 spo4.setAttribute('id',"sliderBlock")
-
-
-             spo.setAttribute('id',"slider")
-             spo.appendChild(spo2)
-             spo.appendChild(spo3)
-             spo.appendChild(spo4)
-
-             label2.appendChild(check2)
-             label2.appendChild(spo)
 
 
 
@@ -915,7 +623,7 @@ if(i==1)
 if(i==2)
      {
 
-        var textoCelda2 = document.createTextNode("Detalle");
+        var textoCelda2 = document.createTextNode(respuesta[item].info);
      celda.appendChild(textoCelda2);
 
 
@@ -926,96 +634,6 @@ if(i==2)
 
 if(i==3)
      {
-/*
-<div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu">
-    <li><a href="#">HTML</a></li>
-    <li><a href="#">CSS</a></li>
-    <li><a href="#">JavaScript</a></li>
-  </ul>
-</div>
-
-*/
-
-/*
- var dev = document.createElement("div");
- dev.setAttribute("id","drop2");
-dev.setAttribute("class","btn-group dropup");
-
- var buttons = document.createElement("button")
-        buttons.setAttribute("class","btn btn-primary dropdown-toggle");
-buttons.setAttribute("aria-haspopup","true");
-buttons.setAttribute("aria-expanded","false");
-       
-        //buttons.setAttribute("id","drop");
-buttons.setAttribute("type","button");
-buttons.setAttribute("data-toggle","dropdown");
-
- var texto = document.createTextNode("Opciones");
- buttons.appendChild(texto);
-
-  var span = document.createElement("span");
-  span.setAttribute("class","caret");
-  buttons.appendChild(span);
-
- var ul = document.createElement("ul");
- ul.setAttribute("class","dropdown-menu");
-
- var li = document.createElement("li");
- var a = document.createElement("a");
- a.setAttribute("href","centrales.html");
- a.setAttribute("id",item);
- a.setAttribute("class","dropdown-item");
- var texto2 = document.createTextNode("Descargar Datos");
- a.appendChild(texto2);
- li.appendChild(a);
-
-
- var li2 = document.createElement("li");
- var a2 = document.createElement("a");
- a2.setAttribute("class","dropdown-item");
- a2.setAttribute("id",item);
- a2.setAttribute("href","#");
-  a2.setAttribute("onClick","abrir2(this.id)");
- var texto22 = document.createTextNode("Graficos");
- a2.appendChild(texto22);
- li2.appendChild(a2);
-
-
- ul.appendChild(li);
- ul.appendChild(li2);
-
-
-dev.appendChild(buttons)
-dev.appendChild(ul)
-
-
-celda.appendChild(dev);
-
-*/
-
-
-
-
-   /*
-     celda.appendChild(label)
-*/
-
-
-/*
-$("#drop2").on("shown.bs.dropdown", function(event){
-  var x = $(event.relatedTarget).text(); // Get the text of the element
-  alert(x);
-
-});
-*/
-
-
-
-
-
 
  
 var ul = document.createElement("ul");
@@ -1027,7 +645,7 @@ var ul = document.createElement("ul");
  a1.setAttribute("href","#");
   a1.setAttribute("onClick","abrir2(this.id)");
 
- var texto22 = document.createTextNode("Grafico");
+ var texto22 = document.createTextNode("Registro");
 a1.appendChild(texto22);
 
  li.appendChild(a1)
@@ -1036,7 +654,7 @@ a1.appendChild(texto22);
 
  var li2 = document.createElement("li");
  li2.setAttribute("href","centrales.html");
- var texto33 = document.createTextNode("Base de datos");
+ var texto33 = document.createTextNode("Archivos");
  li2.setAttribute("id",respuesta[item].id);
  li2.setAttribute("onclick","getPaging(this.id)")
  li2.appendChild(texto33)
@@ -1058,9 +676,9 @@ var ul3 = document.createElement("ul");
  var a13 = document.createElement("a");
  a13.setAttribute("id",item);
  a13.setAttribute("href","#");
-  a13.setAttribute("onClick","abrir2(this.id)");
+  a13.setAttribute("onClick","abrir4(this.id)");
 
- var texto223 = document.createTextNode("Información");
+ var texto223 = document.createTextNode("Acciones");
 a13.appendChild(texto223);
 
  li3.appendChild(a13)
@@ -1753,45 +1371,6 @@ var cell3 = row.insertCell();
 
 
 
-
-
-
-
-/*
-<select id="cars" name="cars">
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="fiat">Fiat</option>
-    <option value="audi">Audi</option>
-  </select>
-*/
-/*
-var selector=document.createElement("select");
-selector.setAttribute("id","cars");
-selector.setAttribute("name","cars");
-
-
-var option1=document.createElement("option");
-option1.setAttribute("value","A");
-var A = document.createTextNode("A");
-option1.appendChild(A);
-
-
-
-var option2=document.createElement("option");
-option2.setAttribute("value","B")
-var B = document.createTextNode("B");
-option2.appendChild(B);
-
-
-
-
-selector.appendChild(option1);
-selector.appendChild(option2);
-*/
-
-
-
 var selector2=document.createElement("select");
 selector2.setAttribute("id",readableDate);
 selector2.setAttribute("name","cars2");
@@ -1836,134 +1415,7 @@ fechas.push(readableDate.toString());
 
 }
 
-
-function insertar2() {
-var select = document.getElementById('ventana');
- // Find a <table> element with id="myTable":
-var table = document.getElementById("tigre");
-
-// Create an empty <tr> element and add it to the 1st position of the table:
-var row = table.insertRow();
-
-// Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
-var cell1 = row.insertCell(0);
-var cell2 = row.insertCell(1);
-var cell3 = row.insertCell(2);
-var cell4 = row.insertCell(3);
-
-
-
-
-var spinner=document.createElement("input");
-spinner.setAttribute("type","number");
-spinner.setAttribute("value","4.5");
-spinner.setAttribute("data-decimals","2");
-spinner.setAttribute("min","-20");
-spinner.setAttribute("max","50");
-spinner.setAttribute("step","0.1");
-//select.appendChild(spinner);
-// Add some text to the new cells:
-//cell1.appendChild(spinner);
-//cell2.appendChild(spinner);
-cell3.appendChild(spinner);
-
-var selector2=document.createElement("select");
-selector2.setAttribute("id","cars2");
-selector2.setAttribute("name","cars2");
-
-
-var opt1=document.createElement("option");
-opt1.setAttribute("value","A");
-var A1 = document.createTextNode("<");
-opt1.appendChild(A1);
-
-
-
-var opt2=document.createElement("option");
-opt2.setAttribute("value","B")
-var B2 = document.createTextNode(">");
-opt2.appendChild(B2);
-
-var opt3=document.createElement("option");
-opt3.setAttribute("value","B")
-var C3 = document.createTextNode("=");
-opt3.appendChild(C3);
-
-
-selector2.appendChild(opt1);
-selector2.appendChild(opt2);
-selector2.appendChild(opt3);
-
-cell2.appendChild(selector2);
-
-
-
-
-var sel=document.createElement("select");
-sel.setAttribute("id","cars2");
-sel.setAttribute("name","cars2");
-
-
-var opt1=document.createElement("option");
-opt1.setAttribute("value","A");
-var A1 = document.createTextNode("ON");
-opt1.appendChild(A1);
-
-
-
-var opt2=document.createElement("option");
-opt2.setAttribute("value","B")
-var B2 = document.createTextNode("OFF");
-opt2.appendChild(B2);
-
-var opt3=document.createElement("option");
-opt3.setAttribute("value","B")
-var C3 = document.createTextNode("Borrar");
-opt3.appendChild(C3);
-
-
-sel.appendChild(opt1);
-sel.appendChild(opt2);
-sel.appendChild(opt3);
-
-cell4.appendChild(sel);
-
-
-var sol=document.createElement("select");
-sol.setAttribute("id","cars2");
-sol.setAttribute("name","cars2");
-
-
-var opt1=document.createElement("option");
-opt1.setAttribute("value","A");
-var A1 = document.createTextNode("t°");
-opt1.appendChild(A1);
-
-
-
-var opt2=document.createElement("option");
-opt2.setAttribute("value","B")
-var B2 = document.createTextNode("-");
-opt2.appendChild(B2);
-
-var opt3=document.createElement("option");
-opt3.setAttribute("value","B")
-var C3 = document.createTextNode("-");
-opt3.appendChild(C3);
-
-
-sol.appendChild(opt1);
-sol.appendChild(opt2);
-sol.appendChild(opt3);
-
-cell1.appendChild(sol);
-
-
-
-}
-
-
-    </script>
+</script>
 
 
 <script>
@@ -1998,7 +1450,7 @@ var table = $('#table').DataTable();
   <div class="modal-content">
     <div class="modal-header">
       <span class="close">&times;</span>
-      <h2>Especificaciones</h2>
+      <h2></h2>
     </div>
     <div class="modal-body" id="ventana">
      
@@ -2009,73 +1461,43 @@ var table = $('#table').DataTable();
     </div>
 
 
-<style>
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 5px;
-  text-align: left;
-}
-</style>
-
 
 
     <div class="modal-footer">
-      <h3>Modal Footer</h3>
+      <h3>Registro Actual</h3>
     </div>
   </div>
+
+
+
+<!-- The Modal -->
+<div id="myModal2" class="modal2">
+
+  <!-- Modal content -->
+  <div class="modal-content2">
+    <div class="modal-header2">
+      <span class="close">&times;</span>
+      <h2></h2>
+    </div>
+    <div class="modal-body2" id="ventana2">
+     
+
+
+    </div>
+
+
+
+
+    <div class="modal-footer2">
+      <h3>Accion</h3>
+    </div>
+  </div>
+
 
 </body>
 
 
 </html>
-
-
-
-<style>
-.slidecontainer {
-  width: 100%;
-}
-
-.slider {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 25px;
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
-
-.slider:hover {
-  opacity: 1;
-}
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  background: #04AA6D;
-  cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  background: #04AA6D;
-  cursor: pointer;
-}
-</style>
-
-<script>
-var hola=createElement("div");
-var ventana = document.getElementById("ventana");
-hola.appendChild(ventana);
-</script>
 
 
 <script type="text/javascript">
@@ -2100,73 +1522,6 @@ console.log(respuesta2);
 }
 
 
-/*
-function disp(id)
-{
-
-console.log(id)
-console.log(respuesta2)
-
-
-document.getElementById("nom").innerHTML = respuesta2[id].id;
-
-document.getElementById("sector").innerHTML = respuesta2[id].Sector;
-
-document.getElementById("estatus").innerHTML = respuesta2[id].Estado;
-
-
-abrir();
-
-
-}
-*/
-
-
-function abrir1(id)
-{
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-var select = document.getElementById('ventana');
-
-while (select.firstChild) {
-  select.removeChild(select.firstChild);
-}
-
-
-
-/*
-
-  <select id="cars" name="cars">
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="fiat">Fiat</option>
-    <option value="audi">Audi</option>
-  </select>
-*/
-
-
-modal.style.display = "block";
-
-}
-
-
-
-
-
-
 var select = document.getElementById('ventana');
 var texto= document.createElement("h1");
 
@@ -2182,105 +1537,6 @@ select.appendChild(texto);
 
 
 
-
-
-
-function abrir3(id)
-{
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-
-var select = document.getElementById('ventana');
-
-
-
-while (select.firstChild) {
-  select.removeChild(select.firstChild);
-}
-
-var evento=document.createElement("input");
-evento.setAttribute("type","button");
-evento.setAttribute("value","Añadir Evento de Tiempo");
-evento.setAttribute("onclick","simplepicker.open();")
-
-var trigger=document.createElement("input");
-
-
-trigger.setAttribute("type","button");
-trigger.setAttribute("value","Añadir Evento de Sensor");
-trigger.setAttribute("onclick","insertar2();")
-
-
-var guardar=document.createElement("input");
-
-
-guardar.setAttribute("type","button");
-guardar.setAttribute("value","Guardar");
-guardar.setAttribute("onclick","obtener(this.id);")
-guardar.setAttribute("id",id);
-
-var dov= document.createElement("div");
-dov.setAttribute("id","eventos");
-
-
-
-select.appendChild(dov);
-
-let table = document.createElement('table');
-let thead = document.createElement('thead');
-let tbody = document.createElement('tbody');
-
-table.appendChild(thead);
-table.appendChild(tbody);
-
-// Adding the entire table to the body tag
-document.getElementById('ventana').appendChild(table);
-
-
-
-
-
-
-
-
-//genera_tabla();
-modal.style.display = "block";
-
-
-/*
-genera_tabla();
-
-
-
-
-
-
-*/
-genera();
-
-select.appendChild(evento)
-genera_tabla2()
-select.appendChild(trigger)
-select.appendChild(guardar)
-
-}
-
-
-
 </script>
 
 
@@ -2290,96 +1546,11 @@ select.appendChild(guardar)
 
    <script src="js/bootstrap.js"></script>
 
-
-  
-
-   <script type = "text/javascript">
-         <!--
-
-
-var alarmas=[];
-
-
-            function getConfirmation() {
-              
- for ( var item = 0; item < fechas.length; item++) {
-var select = document.getElementById(fechas[item]);
-var value = select.options[select.selectedIndex].value;
-
-
-              
-              alarmas.push(select.id.substring(select.id.length-7,select.id.length))
-              alert(alarmas[item]);
-              $.ajax({
-    url:'/timers',
-    method:'POST',
-    data: {Timer: alarmas[item] ,Action :value
-        
-         },
-
-    beforeSend: function(data){
-      console.log('Enviando...',data)
-    },
-  }).done(function(respuesta){
-
-    console.log('Respuesta recibida:',respuesta)
-    console.log(respuesta)
-
-}).fail(function(err){
-    console.log(err)
-    
-  }
-
-    )
-       }
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-       alarmas=[];
-       fechas=[];
-     }
-
-
-         //-->
-
-  function alerta(x)
-  {
-
-    alert(x);
-  }
-      </script>
-
-
-
 </script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/chart-area-demo.js"></script>
         <script src="assets/demo/chart-bar-demo.js"></script>
 
-
-
-<script>
-
-
-
-
-</script>
 
 

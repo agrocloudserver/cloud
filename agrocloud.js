@@ -238,15 +238,16 @@ console.log(req.body.id.toString())
 const db = client.db(dbName);
     const collection = db.collection('nodos');
 
-  collection.insertOne({id:req.body.id.toString(),Sector:req.body.Sector.toString(),Estado:req.body.Estado.toString()});
+  collection.insertOne({id:req.body.id.toString(),info:req.body.info.toString()});
 const fsPromises = fs.promises;
   
+/*  
 fsPromises.mkdir('C:/Users/idcla/Documents/GitHub/propal/Datos/'+req.body.id.toString()).then(function() {
     console.log('Directory created successfully');
 }).catch(function() {
     console.log('failed to create directory');
 });
-
+*/
 }
 
   );
@@ -469,7 +470,7 @@ console.log("peticion recibida")
 
 
 var mqtt = require('mqtt')
-var client2  = mqtt.connect('mqtt://204.48.20.11:1884')
+var client2  = mqtt.connect('mqtt://192.168.8.123:1884')
  
 client2.on('connect', function () {
 
@@ -547,30 +548,40 @@ const fs = require("fs");
 
 var formatted2 = dt.format('d-m-Y');
 
-const ws = fs.createWriteStream("/root/propal/Datos/"+req.body.central+"/"+formatted+".csv");
+const ws = fs.createWriteStream("/home/tom/cloud/Datos/"+req.body.central+"/"+formatted+".csv");
 
  let url = "mongodb://localhost:27017/";
  
 
 
 
+//MONGO DB
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
 
+
+
+
+const url2 = 'mongodb://localhost:27017';
+
+// Database Name
+const dbName = 'myproject';
+
+// Create a new MongoClient
+const client = new MongoClient(url2);
+
+// Use connect method to connect to the Server
 client.connect(function(err) {
+
   assert.equal(null, err);
   console.log("Connected successfully to server");
-
-
 
 
 
   const db = client.db(dbName);
   const collection = db.collection('directorios'+req.body.central);
 
-collection.insertOne({id:req.body.central,date:formatted,dir:"/root/propal/Datos/"+req.body.central+"/"+formatted+"f"+".xlsx"});
-
-
-
-
+collection.insertOne({id:req.body.central,date:formatted,dir:"/home/tom/cloud/Datos/"+req.body.central+"/"+formatted+"f"+".xlsx"});
 
 
 
@@ -587,15 +598,13 @@ mongodb.connect(
     client
       .db("myproject")
       .collection(req.body.central)
-      .find({ "fecha" : formatted2})
+      .find({"fecha" : formatted2})
       .toArray((err, data) => {
         if (err) throw err;
 
         console.log(data.length);
         cantidad=data.length;
         mandar(cantidad)
-
-
         fastcsv
           .write(data, { headers: true})
           .on("finish", function() {
@@ -613,15 +622,19 @@ mongodb.connect(
 
 
 
+
   }
 );
 
+
 });
+
+
 
 function mandar(cantidad)
 {
 
-var python = spawn('python3', ['/root/propal/formato.py',formatted,req.body.central,cantidad.toString()]);
+var python = spawn('python3', ['/home/tom/cloud/formato.py',formatted,req.body.central,cantidad.toString()]);
 
 var dataToSend;
 

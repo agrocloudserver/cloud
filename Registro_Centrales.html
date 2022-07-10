@@ -23,8 +23,6 @@
 
 
 
-<script src="js/gauge.min.js">  </script> 
-
 
 
 
@@ -140,40 +138,12 @@
 <div class=div2>
      <form action="#">
       
-            <label for="username">Nombre de la Central</label> <br></br>
-            <input type="text" id="cname"class="block w-full p-2 border rounded border-gray-500"/>
+            <label for="username">id</label> <br></br>
+            <input type="text" id="id"class="block w-full p-2 border rounded border-gray-500"/>
        <br></br>
-            <label for="password">Modelo</label>
             <br></br>
-            <input
-              type="text"
-              id="ctype"
-              class="block w-full p-2 border rounded border-gray-500"
-            />
-            <br></br>
-            <label for="username">Canal de la Central</label> <br></br>
-            <input type="text" id="channel"class="block w-full p-2 border rounded border-gray-500"/>
-<br></br>
-            <label for="username">Accionador A función</label> <br></br>
-            <input type="text" id="actA"class="block w-full p-2 border rounded border-gray-500"/>
-<br></br>
-            <label for="username">Accionador B función</label> <br></br>
-            <input type="text" id="actB"class="block w-full p-2 border rounded border-gray-500"/>
-
-
-       <br></br>
-
-       <label for="username">Ubicación</label> <br></br>
-            <input type="text" id="ubic"class="block w-full p-2 border rounded border-gray-500"/>
-
-
-
-
-       <br></br>
-
-       <label for="username">Estado</label> <br></br>
-            <input type="text" id="estado"class="block w-full p-2 border rounded border-gray-500"/>
-
+            <label for="username">info</label> <br></br>
+            <input type="text" id="info"class="block w-full p-2 border rounded border-gray-500"/>
 
 
 
@@ -236,15 +206,9 @@ $("#boton").click(function(event){
   $.ajax({
     url:'/crearcentral',
     method:'POST',
-    data: {centralname: $("#cname").val(),
-        
-            centraltype: $("#ctype").val(),
-            id: $("#channel").val(),
-           actA: $("#actA").val(),
-           actB: $("#actB").val(),
-           Sector: $("#ubic").val(),
-           Estado: $("#estado").val()
-
+    data: {
+            id: $("#id").val(),
+           info: $("#info").val(),
          },
 
     beforeSend: function(data){
@@ -291,12 +255,6 @@ else
 
 
 </script>
-
-
-
-
-
-
 
 
 

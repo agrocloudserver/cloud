@@ -1,10 +1,4 @@
 
-
-
-
-
-
-
 const clientId = 'mqttjs_' + Math.random().toString(16).substr(2, 8)
 
 const options = {
@@ -24,7 +18,7 @@ const options = {
 }
 
 
-const host = 'ws://204.48.20.11:9001' 
+const host = 'ws://192.168.8.123:9001' 
 
 
 console.log('Connecting mqtt client')
@@ -47,61 +41,6 @@ client.on('connect', () => {
 
   
 })
-
-
-
-
- /*
-
-  if(topic=="nodo1")
-  {
-   
-  console.log(message.toString())
-const db = client.db(dbName);
-    const collection = db.collection('nodo1');
-  // Insert some documents
-
-  var fecha= new Date();
- var hora_actual = fecha.getHours();
-
-
-  collection.insertOne({lectura:message.toString(),fecha: current_hour});
-}
-
- if(topic=="nodo2")
-  {
-  console.log(message.toString())
-
-
-
-const db = client.db(dbName);
-    const collection = db.collection('nodo2');
-  // Insert some documents
-
- 
-
-  collection.insertOne({lectura:message.toString(),fecha: current_hour });
- 
-
-
-}
- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 client.on('message', (topic, message, packet) => {
@@ -132,7 +71,7 @@ if(message.toString()=="BoffAoff")
 
 
   console.log(respuesta2[i].id+"/B");
-  var delayInMilliseconds = 1000; //1 second
+  var delayInMilliseconds = 500; //1 second
 
 
 setTimeout(function() {
@@ -141,12 +80,8 @@ setTimeout(function() {
 }, delayInMilliseconds);
 
 // Check
-document.getElementById(respuesta2[i].id+"/B").checked = false;
-document.getElementById(":"+respuesta2[i].id+"/A").checked = false;
-
-
-
-
+document.getElementById(":"+respuesta2[i].id+"/Accionador0").checked = false;
+document.getElementById(":"+respuesta2[i].id+"/Accionador1").checked = false;
 
 }
 else if (message.toString()=="BonAoff")
@@ -154,7 +89,7 @@ else if (message.toString()=="BonAoff")
 
 
   console.log(respuesta2[i].id+"/B");
-  var delayInMilliseconds = 1000; //1 second
+  var delayInMilliseconds = 500; //1 second
 
 setTimeout(function() {
   //your code to be executed after 1 second
@@ -162,16 +97,16 @@ setTimeout(function() {
 }, delayInMilliseconds);
 
 // Check
-document.getElementById(respuesta2[i].id+"/B").checked = true;
-document.getElementById(":"+respuesta2[i].id+"/A").checked = false;
+document.getElementById(":"+respuesta2[i].id+"/Accionador0").checked = false;
+document.getElementById(":"+respuesta2[i].id+"/Accionador1").checked = true;
 }
 
 else if (message.toString()=="BoffAon")
 {
 
 
-  console.log(respuesta2[i].id+"/B");
-  var delayInMilliseconds = 1000; //1 second
+  console.log(":"+respuesta2[i].id+"/Accionador0");
+  var delayInMilliseconds = 500; //1 second
 
 setTimeout(function() {
   //your code to be executed after 1 second
@@ -179,15 +114,15 @@ setTimeout(function() {
 }, delayInMilliseconds);
 
 // Check
-document.getElementById(respuesta2[i].id+"/B").checked = false;
-document.getElementById(":"+respuesta2[i].id+"/A").checked = true;
+document.getElementById(":"+respuesta2[i].id+"/Accionador0").checked = true;
+document.getElementById(":"+respuesta2[i].id+"/Accionador1").checked = false;
 }
 else if (message.toString()=="BonAon")
 {
 
 
   console.log(respuesta2[i].id+"/B");
-  var delayInMilliseconds = 1000; //1 second
+  var delayInMilliseconds = 500; //1 second
 
 setTimeout(function() {
   //your code to be executed after 1 second
@@ -195,22 +130,14 @@ setTimeout(function() {
 }, delayInMilliseconds);
 
 // Check
-document.getElementById(respuesta2[i].id+"/B").checked = true;
-document.getElementById(":"+respuesta2[i].id+"/A").checked = true;
+document.getElementById(":"+respuesta2[i].id+"/Accionador0").checked = true;
+document.getElementById(":"+respuesta2[i].id+"/Accionador1").checked = true;
 }
-}
-  /*
-}
-
-*/
-}
-
-
-
-})
+}}})
 
 console.log(canales);
-;
+
+
 
 function comu(canales,numero)
 {
@@ -224,18 +151,11 @@ for ( var item = 0; item < numero ; item++) {
  client.subscribe(canales[item], { qos: 0 })
  client.subscribe(canales[item]+"reporte", { qos: 0 })
           
-gauges[item] = new RadialGauge({ renderTo: item.toString() ,width: 420,
-    height: 350, id:item}).draw()
+gauges[item] = new RadialGauge({ renderTo: item.toString() ,width: 380,
+    height: 310, id:item}).draw()
 
 
         }
-
-
-/*
-nodo2 = new RadialGauge({ renderTo: "1" ,width: 400,
-    height: 400, id:item}).draw()
-*/
-
 
 client.on('message', (topic, message, packet) => {
   //console.log('Received Message: ' + message.toString() + '\nOn topic: ' + topic)
@@ -253,16 +173,6 @@ for ( var item = 0; item < numero ; item++) {
 
  	gauges[item].value = parseInt(msn)
  console.log(canales[item]);
-
-
-
-
-
-
-
-
-
-
 
         }
 }
@@ -316,23 +226,33 @@ client.on('message', (topic, message, packet) => {
     checkboxElem.id.lastIndexOf("/")
 );
 
-mySubString=strong+"control";
- // alert(mySubString)
+ var strong2 = checkboxElem.id.substring(
+    checkboxElem.id.lastIndexOf("/") + 1, 
+    checkboxElem.id.length
+);
 
-    client.publish(mySubString,checkboxElem.id+"#ON;")
-    console.log(mySubString,checkboxElem.id+"#ON;")
+
+mySubString=strong+"control";
+  
+    alert(strong2+"#ON;")
+    client.publish(mySubString,strong2+"#ON;")
+    //console.log(mySubString,checkboxElem.id+"#ON;")
    
   } else {
-    //alert (checkboxElem.id+"/OFF");
+    alert(strong2+"#OFF");
 
   var strong = checkboxElem.id.substring(
     checkboxElem.id.lastIndexOf(":") + 1, 
     checkboxElem.id.lastIndexOf("/")
 );
+   var strong2 = checkboxElem.id.substring(
+    checkboxElem.id.lastIndexOf("/") + 1, 
+    checkboxElem.id.length
+);
   mySubString=strong+"control";
   //alert(mySubString)
- client.publish(mySubString,checkboxElem.id+"#OFF;")
- console.log(mySubString,checkboxElem.id+"#OFF;")
+ client.publish(mySubString,strong2+"#OFF;")
+ console.log(mySubString,strong2+"#OFF;")
     
     
   }
@@ -341,14 +261,39 @@ mySubString=strong+"control";
 
 var kabur=0;
 
+
+
 function abrir2(id)
 {
+
+
+  var detalles = document.createElement("button");
+detalles.setAttribute("class","button button1")
+detalles.setAttribute("id","hola")
+detalles.setAttribute("onclick","")
+
+var textoCelda3 = document.createTextNode("Generar Archivo");
+detalles.appendChild(textoCelda3)
+
+var detalles2= document.createElement("button");
+detalles2.setAttribute("class","button button1")
+detalles2.setAttribute("id","hola2")
+detalles2.setAttribute("onclick","limpiar(myChart)")
+
+
+var textoCelda33= document.createTextNode("Limpiar Registro");
+detalles2.appendChild(textoCelda33)
+
+
+
   kabur=1;
 console.log("KABUR")
 console.log(respuesta2[id].id)
 
 var lecturas=[];
 var fechas=[];
+
+
 
 $.ajax({
     url:'/dataget',
@@ -371,11 +316,13 @@ $.ajax({
 
 console.log(respuesta);
 
+
 for ( var item = 0; item < numero ; item++) {
 
 
+
 lecturas.push(respuesta[item].lectura)
-fechas.push(item)
+fechas.push(respuesta[item].hora)
 
 
         }
@@ -401,68 +348,26 @@ while (select.firstChild) {
 }
 
 
+var chartconteiner= document.createElement("div")
+chartconteiner.setAttribute("class","chart-container")
+chartconteiner.setAttribute("style","position: relative; height:43vw; width:65vw")
+
 
 var chart = document.createElement("canvas")
-
 chart.setAttribute("id","myChart")
 
-select.appendChild(chart)
+chart.setAttribute("height","200")
+chart.setAttribute("width","auto")
+chartconteiner.appendChild(chart)
 
-
-/*
-var slider= document.createElement("input");
-slider.setAttribute("type","range");
-slider.setAttribute("min","1");
-slider.setAttribute("max","100");
-slider.setAttribute("value","50");
-slider.setAttribute("class","slider");
-slider.setAttribute("id","myRange");
-
-var text = document.createTextNode("N° muestras");
-select.appendChild(text);
-
-
-
-var pe = document.createElement("p");
-
-var text2 = document.createTextNode("Configuración");
-pe.appendChild(text2);
-pe.setAttribute("id","demo");
-select.appendChild(pe);
-select.appendChild(slider)
-
-
-
-   
-
-
-
-
-
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-
-
-
-
-
-output.innerHTML = slider.value;
-
-slider.oninput = function() {
-  output.innerHTML = this.value;
-}
-
-*/
-var detalles = document.createElement("button");
-detalles.setAttribute("class","button button1")
-detalles.setAttribute("id","hola")
-detalles.setAttribute("onclick","limpiar(myChart)")
-
-
-var textoCelda3 = document.createTextNode("Limpiar");
-detalles.appendChild(textoCelda3)
+select.appendChild(chartconteiner)
 
 select.appendChild(detalles)
+
+select.appendChild(detalles2)
+
+
+
 
  alert("Base de datos descargada")
 
@@ -503,10 +408,12 @@ var myChart = new Chart(ctx, {
 });
 
 
-
 client.on('message', (topic, message, packet) => {
   //console.log('Received Message: ' + message.toString() + '\nOn topic: ' + topic)
 
+  
+var today = new Date();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
  if(topic==respuesta2[id].id && kabur==1)
   {
@@ -514,7 +421,7 @@ var msn=message.toString();
 //console.log("modlemqtt"+msn)
  myChart.update();
 lecturas.push(msn)
-fechas.push("hola")
+fechas.push(time)
 console.log(lecturas);
 //console.log(fechas)
 
@@ -527,14 +434,9 @@ console.log(lecturas);
 
 })
 
-
-
-
-
-
-
-
 modal.style.display = "block";
+
+
 
 
 
@@ -547,8 +449,6 @@ this.limpiar =function()
 {
 
 console.log(respuesta2[id].id);
-
-
 $.ajax({
     url:'/limpiar',
     method:'POST',
@@ -562,7 +462,6 @@ $.ajax({
 
 }).fail(function(err){
     console.log(err)
-    
 
   }
 
@@ -601,55 +500,241 @@ window.onclick = function(event) {
 
 
 
-
-function obtener(id)
+function abrir4(id)
 {
-var ode=id;
-var alarms=[];
-//console.log("hola");
-//gets table
-var oTable = document.getElementById('table');
 
 
-//gets rows of table
-var rowLength = oTable.rows.length;
- 
 
-//var oCells = oTable.rows.item(2).cells;
+var select = document.getElementById('ventana');
 
-
-//var cellLength = oCells.length;
-
-
-//var hola=oCells.item(0).textContent
-
-
- //console.log(cellLength)
-//console.log(rowLength)
- //console.log(hola);
-var o=0;
-for (var i = 2; i < rowLength; i++) {
-var oCells = oTable.rows.item(i).cells;
-alarms[o]=oCells.item(0).textContent
-o=o+1;
+while (select.firstChild) {
+  select.removeChild(select.firstChild);
 }
 
-console.log(alarms[0])
-console.log(alarms[1])
-console.log(alarms[2])
-console.log(alarms[3])
-
- getConfirmation()
+var titulo=document.createTextNode("Accionador A")
+//select.appendChild(titulo)
+//select.appendChild(label)
 
 
+// Crea un elemento <table> y un elemento <tbody>
+  var tabla   = document.createElement("table");
+  var tblBody = document.createElement("tbody");
+ // Crea las celdas+
+//
+
+
+for (var x = 0; x < 2; x++) {
+//botón 1
+var newContent1 = document.createTextNode("ON");
+var newContent2 = document.createTextNode("OFF");
+
+ var check= document.createElement("input");
+            check.setAttribute('type', "checkbox")
+            check.setAttribute('id',":"+respuesta2[id].id+"/"+"Accionador"+x)
+             check.setAttribute('onchange', "doalert(this)")
+
+            var label=document.createElement("label")
+            label.setAttribute('id' , "sliderLabel")
+
+
+             var spa=document.createElement("span")
+               var spa2=document.createElement("span")
+
+
+               spa2.setAttribute('id',"sliderOn")
+               spa2.appendChild(newContent1)
+
+
+                 var spa3=document.createElement("span")
+                 spa3.setAttribute('id',"sliderOff")
+                 spa3.appendChild(newContent2)
+                 var spa4=document.createElement("span")
+                 spa4.setAttribute('id',"sliderBlock")
+
+
+             spa.setAttribute('id',"slider")
+             spa.appendChild(spa2)
+             spa.appendChild(spa3)
+             spa.appendChild(spa4)
+
+             label.appendChild(check)
+             label.appendChild(spa)
+
+  for (var i = 0; i < 4; i++) {
+    
+    // Crea las hileras de la tabla
+    var hilera = document.createElement("tr");
+
+    for (var j = 0; j < 1; j++) {
+      // Crea un elemento <td> y un nodo de texto, haz que el nodo de
+      // texto sea el contenido de <td>, ubica el elemento <td> al final
+      // de la hilera de la tabla
+      var celda = document.createElement("td");
+     // var textoCelda = document.createTextNode("celda en la hilera "+i+", columna "+j);
+      //celda.appendChild(textoCelda);
+      hilera.appendChild(celda);
+
+
+     if(i==0)
+     {
+
+     var textoCelda = document.createTextNode("Accionador"+x+": Luz de emergencia");
+     celda.appendChild(textoCelda);
+     
+     }
+
+
+if(i==1)
+     {
+
+     celda.appendChild(label);
+
+     }
+
+
+if(i==2)
+     {
+
+    
+   var textoCelda = document.createTextNode("12:00");
+     celda.appendChild(textoCelda);
+
+     
+
+     }
+
+
+if(i==3)
+     {
+
+      
+    var textoCelda = document.createTextNode("MAX:MIN:LLAMADA");
+     celda.appendChild(textoCelda);
+
+     }
 
 
 
 
+    }
 
-client.publish(ode+"control","reset")
+    // agrega la hilera al final de la tabla (al final del elemento tblbody)
+    tblBody.appendChild(hilera);
+  }
+tabla.appendChild(tblBody)
+ select.appendChild(tabla)
+ 
 
-  
+  }
+
+ var detalles3 = document.createElement("button");
+detalles3.setAttribute("class","button button1")
+detalles3.setAttribute("id","hola22")
+detalles3.setAttribute("onclick","location.href=Configurar_Centrales.html")
+
+ 
+
+var textoCelda5 = document.createTextNode("Configurar");
+detalles3.appendChild(textoCelda5)
+select.appendChild(detalles3)
+document.getElementById("hola22").onclick = function () {
+        location.href = "Configuracion_Centrales.html";
+    };
+  modal.style.display = "block";
+
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+   
+  }
+}
+  }
+
+
+  function abrir3(id)
+{
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+var select = document.getElementById('ventana');
+
+
+
+while (select.firstChild) {
+  select.removeChild(select.firstChild);
+}
+
+var evento=document.createElement("input");
+evento.setAttribute("type","button");
+evento.setAttribute("value","Añadir Evento de Tiempo");
+evento.setAttribute("onclick","simplepicker.open();")
+
+var trigger=document.createElement("input");
+
+
+trigger.setAttribute("type","button");
+trigger.setAttribute("value","Añadir Evento de Sensor");
+trigger.setAttribute("onclick","insertar2();")
+
+
+var guardar=document.createElement("input");
+
+
+guardar.setAttribute("type","button");
+guardar.setAttribute("value","Guardar");
+guardar.setAttribute("onclick","obtener(this.id);")
+guardar.setAttribute("id",id);
+
+var dov= document.createElement("div");
+dov.setAttribute("id","eventos");
+
+
+
+select.appendChild(dov);
+
+let table = document.createElement('table');
+let thead = document.createElement('thead');
+let tbody = document.createElement('tbody');
+
+table.appendChild(thead);
+table.appendChild(tbody);
+
+document.getElementById('ventana').appendChild(table);
+
+modal.style.display = "block";
+
+genera();
+
+select.appendChild(evento)
+genera_tabla2()
+select.appendChild(trigger)
+select.appendChild(guardar)
+
 }
 
 

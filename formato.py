@@ -4,6 +4,7 @@
 
 
 
+
 import pandas as pd
 
 from pathlib import Path
@@ -14,7 +15,7 @@ import os
 import sys
 
 
-from flask import Flask
+#from flask import Flask
 import json 
    
 
@@ -39,7 +40,7 @@ from openpyxl.chart.axis import DateAxis
 
 
 # Setup flask server
-app = Flask(__name__) 
+#app = Flask(__name__) 
   
 
 
@@ -48,7 +49,7 @@ a=sys.argv[1]
 b=sys.argv[2]
 c=sys.argv[3]
 
-csv = pd.read_csv(r'/root/propal/Datos/'+sys.argv[2]+'/'+a+'.csv')
+csv = pd.read_csv(r'/home/tom/cloud/Datos/'+sys.argv[2]+'/'+a+'.csv')
 
 df = pd.DataFrame(csv)
   
@@ -57,7 +58,7 @@ df = pd.DataFrame(csv)
 
 
 # create excel writer object
-writer = pd.ExcelWriter(r'/root/propal/Datos/'+sys.argv[2]+'/'+a+'.xlsx')
+writer = pd.ExcelWriter(r'/home/tom/cloud/Datos/'+sys.argv[2]+'/'+a+'.xlsx')
 # write dataframe to excel
 df.to_excel(writer)
 # save the excel
@@ -81,7 +82,7 @@ sheet = wb.active
 
  
 # Give the location of the file
-path = "/root/propal/Datos/"+sys.argv[2]+'/'+a+'.xlsx'
+path = "/home/tom/cloud/Datos/"+sys.argv[2]+'/'+a+'.xlsx'
  
 # To open the workbook
 # workbook object is created
@@ -184,7 +185,7 @@ chart.set_categories(dates)
 ws.add_chart(chart, "E2")
 
 
-wb.save("/root/propal/Datos/"+sys.argv[2]+'/'+a+"f"+'.xlsx')
+wb.save("/home/tom/cloud/Datos/"+sys.argv[2]+'/'+a+"f"+'.xlsx')
 
 
 
