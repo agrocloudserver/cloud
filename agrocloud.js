@@ -57,7 +57,7 @@ router.use(function (req,res,next) {
 
 
 app.get("/",function(req,res){
-  res.sendFile(path + "login.html");
+  res.sendFile(path + "cover.html");
 });
 
 
