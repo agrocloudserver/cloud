@@ -1,38 +1,48 @@
-<!DOCTYPE html>
-<!-- saved from url=(0060)https://getbootstrap.com/docs/4.0/examples/starter-template/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="https://getbootstrap.com/docs/4.0/assets/img/favicons/favicon.ico">
-
-   
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <!DOCTYPE html>
+    <!-- saved from url=(0060)https://getbootstrap.com/docs/4.0/examples/starter-template/ -->
+    <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="https://getbootstrap.com/docs/4.0/assets/img/favicons/favicon.ico">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="js/jquery-1.11.1.min.js"></script>
 
 
-    <title>Agrocloud</title>
+   <script src="js/bootstrap.js"></script>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/starter-template/">
+</script>
 
-    <!-- Bootstrap core CSS -->
-    <link href="./Starter Template for Bootstrap_files/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
 
-    <!-- Custom styles for this template -->
-    <link href="./Starter Template for Bootstrap_files/starter-template.css" rel="stylesheet">
-  </head>
 
-  <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="https://getbootstrap.com/docs/4.0/examples/starter-template/#">Agrocloud</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
+
+        <title>Agrocloud</title>
+
+        <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/starter-template/">
+
+        <!-- Bootstrap core CSS -->
+        <link href="./Starter Template for Bootstrap_files/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="./Starter Template for Bootstrap_files/starter-template.css" rel="stylesheet">
+      </head>
+
+  
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+          <a class="navbar-brand" href="https://getbootstrap.com/docs/4.0/examples/starter-template/#">Agrocloud</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
 
 
           
@@ -87,38 +97,30 @@
     <script src="./Starter Template for Bootstrap_files/jquery-3.2.1.slim.min.js.descarga" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
 
-   
-
-
-
 <script src=" https://cdnjs.com/libraries/Chart.js"></script>
 
 
 
-  <style>
+
+<body id="cuerpo">
 
 
-
+<style>
 body, html {
-    height: 80%;
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-/* The hero image */
 .hero-image {
-  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/banner.jpg");
-
-  /* Set a specific height */
   height: 50%;
-
-  /* Position and center the image to scale nicely on all screens */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
 }
 
-/* Place text in the middle of the image */
 .hero-text {
   text-align: center;
   position: absolute;
@@ -128,63 +130,589 @@ body, html {
   color: white;
 }
 
+.hero-text button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 10px 25px;
+  color: black;
+  background-color: #ddd;
+  text-align: center;
+  cursor: pointer;
+}
 
+.hero-text button:hover {
+  background-color: #555;
+  color: white;
+}
 </style>
+</head>
+<body>
 
 <div class="hero-image">
+
+
   <div class="hero-text">
-  
+      <img class="d-block mx-auto mb-4" src="/images/logo.png" alt="" width="130" height="80">
+    <h1 style="font-size:30px">Sistemas Digitales</h1>
+    <p>Al servicio de la educación, la  comunidad y el medio ambiente</p>
+    <button>Conoce Más</button>
   </div>
 </div>
 
-
-
-
-<body id="cuerpo">
 <link rel="stylesheet" href="./simplepicker_ Material Inspired Date &amp; Time Picker Example_files/simplepicker.css">
-
-
-
-  <style>
-  body { font-family: 'Roboto'; }
-    .event-log {
-      font-family: consolas, Monaco, monospace;
-      margin: 10px 5px;
-      line-height: 2;
-      border: 1px solid #4c4c4c;
-      height: auto;
-      width: 90%;
-      padding: 2px 6px;
-      color: #4c4c4c;
-      white-space: pre;
-    }
-  </style>
 </head>
-
-<body>
-
-
-
-
-  
-
-  <script src="./simplepicker_ Material Inspired Date &amp; Time Picker Example_files/simplepicker.js.descarga"></script>
-
-
 <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<script src="js/jquery-1.11.1.min.js"></script> 
+<script src="js/gauge.min.js">  </script> 
+<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+<script type="text/javascript">
 
 
+$( document ).ready(function() {
+  $.ajax({
+    url:'/nodos',
+    method:'POST',
+    datatype:"JSON",
+    contentType: "application/json",
+    beforeSend: function(data){
+      console.log('Enviando...',data)
+    },
+  }).done(function(respuesta){
+    const numero = respuesta.length;
+    let nombres = respuesta;
+    const canales=[];
+    console.log('Respuesta recibida:',respuesta)
+    console.log(respuesta)
+    console.log(respuesta.length)
+   //console.log(numero);
+for ( var item = 0; item < numero ; item++) {
+
+copia(respuesta[item]);
+
+            var canv = document.createElement("canvas");
+            
+            var division= document.createElement("div");
+            division.setAttribute("style" , "float: left")
+            var salto= document.createElement("br")
+            var porte= document.createElement("h1")
+            var newContent3 = document.createTextNode(respuesta[item].id);
+            porte.appendChild(newContent3)
+      
+            //document.body.appendChild(division)
+            document.getElementById("cuerpo").appendChild(division);
+            canv.setAttribute('width', 400);
+            canv.setAttribute('height', 400);
+
+            canv.setAttribute('id', item);
+            //document.body.appendChild(canv);
+
+            canales.push(nombres[item].id)
+            //console.log(canales);
+           
+ // Obtener la referencia del elemento body
+  var body = document.getElementsByTagName("body")[0];
+
+  // Crea un elemento <table> y un elemento <tbody>
+  var tabla   = document.createElement("table");
+  var tblBody = document.createElement("tbody");
+
+  // Crea las celdas
+  for (var i = 0; i < 4; i++) {
+    // Crea las hileras de la tabla
+    var hilera = document.createElement("tr");
+
+    for (var j = 0; j < 1; j++) {
+      // Crea un elemento <td> y un nodo de texto, haz que el nodo de
+      // texto sea el contenido de <td>, ubica el elemento <td> al final
+      // de la hilera de la tabla
+      var celda = document.createElement("td");
+     // var textoCelda = document.createTextNode("celda en la hilera "+i+", columna "+j);
+      //celda.appendChild(textoCelda);
+      hilera.appendChild(celda);
+
+     if(i==0)
+     {
+
+     var textoCelda = document.createTextNode(respuesta[item].id);
+     celda.appendChild(textoCelda);
+     
+     }
+
+if(i==1)
+     {
+
+     var textoCelda = document.createTextNode("");
+     celda.appendChild(textoCelda);
+      celda.appendChild(canv)
+      celda.appendChild(textoCelda);
+
+     }
+
+if(i==2)
+     {
+
+        var textoCelda2 = document.createTextNode(respuesta[item].info);
+     celda.appendChild(textoCelda2);
+     }
+
+if(i==3)
+     {
+
+var ul = document.createElement("ul");
+ var li = document.createElement("li");
+ var a1 = document.createElement("a");
+ a1.setAttribute("id",item);
+ a1.setAttribute("href","#");
+  a1.setAttribute("onClick","abrir2(this.id)");
+ var texto22 = document.createTextNode("Registro");
+a1.appendChild(texto22);
+ li.appendChild(a1)
+ var li2 = document.createElement("li");
+ li2.setAttribute("href","centrales.html");
+ var texto33 = document.createTextNode("Archivos");
+ li2.setAttribute("id",respuesta[item].id);
+ li2.setAttribute("onclick","getPaging(this.id)")
+ li2.appendChild(texto33)
+ var a2 = document.createElement("a");
+ a2.setAttribute("id",item);
+ a2.setAttribute("href","centrales.html");
+ a2.appendChild(texto33);
+ li2.appendChild(a2)
+var ul3 = document.createElement("ul");
+ var li3 = document.createElement("li");
+ var a13 = document.createElement("a");
+ a13.setAttribute("id",item);
+ a13.setAttribute("href","#");
+  a13.setAttribute("onClick","abrir4(this.id)");
+ var texto223 = document.createTextNode("Acciones");
+a13.appendChild(texto223);
+ li3.appendChild(a13)
+ ul.appendChild(li)
+  ul.appendChild(li2)
+  ul.appendChild(li3)
+ celda.appendChild(ul)
+     }
+
+if(i==6)
+     {
+celda.appendChild(label2)
+    
+     }
+     if(i==7)
+     {
+    var pe=document.createElement("div");
+     pe.setAttribute("id","demo2"+respuesta[item].id);
+     pe.setAttribute("float","rigth");
+     celda.appendChild(pe);
+     }
+     if(i==8)
+     {
+var detalles = document.createElement("button");
+   detalles.setAttribute("class","button button1")
+   detalles.setAttribute("id",item)
+   detalles.setAttribute("onclick","abrir1(this.id)")
+   var textoCelda3 = document.createTextNode("Detalles");
+detalles.appendChild(textoCelda3)
+   celda.appendChild(detalles) 
+   var detalles = document.createElement("button");
+   detalles.setAttribute("class","button button1")
+   detalles.setAttribute("id",item)
+   detalles.setAttribute("onclick","abrir2(this.id)")
+   var textoCelda3 = document.createTextNode("Lecturas");
+detalles.appendChild(textoCelda3)
+   celda.appendChild(detalles)
+   var detalles = document.createElement("button");
+   detalles.setAttribute("class","button button1")
+   detalles.setAttribute("id",item)
+   detalles.setAttribute("onclick","abrir1(this.id)")
+
+
+   var textoCelda3 = document.createTextNode("Imagen");
+detalles.appendChild(textoCelda3)
+
+
+
+   celda.appendChild(detalles)
+
+
+
+   var detalles = document.createElement("button");
+   detalles.setAttribute("class","button button1")
+   detalles.setAttribute("id",item)
+   detalles.setAttribute("onclick","abrir1(this.id)")
+
+
+   var textoCelda3 = document.createTextNode("Historial");
+detalles.appendChild(textoCelda3)
+
+
+
+   celda.appendChild(detalles)
+
+
+
+
+
+     }
+
+
+    }
+
+    tblBody.appendChild(hilera);
+  }
+
+
+
+  // posiciona el <tbody> debajo del elemento <table>
+  tabla.appendChild(tblBody);
+  // appends <table> into <body>
+  body.appendChild(tabla);
+  // modifica el atributo "border" de la tabla y lo fija a "2";
+  tabla.setAttribute("border", "2");
+
+
+
+ 
+
+
+    //division.appendChild(label);
+    division.appendChild(tabla)
+
+        }
+
+
+
+   comu(canales,numero);
+
+
+}).fail(function(err){
+    console.log(err)
     
 
+  }
 
-<script src="js/jquery-1.11.1.min.js"></script> 
+    )
+//console.log(canales);
+
+ alert("Descargando información del usuario")
 
 
-<script src="js/gauge.min.js">  </script> 
+});
+
+
+</script>
+
+  
+<script>
+
+function getPaging(str) {
+   localStorage.setItem("dato",str);
+  alert(str);
+  $("#loading-content").load("dataSearch.php?"+str, hideLoader);
+ 
+}
+
+</script>
+
+
+<script src="/mqtt.js"></script>
 
 
 
-<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    $("input[type='number']").inputSpinner();
+</script>
+
+
+<script src="bootstrap-input-spinner.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.css">
+
+<script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
+       
+
+
+
+
+<script>
+
+
+
+function genera() {
+
+
+
+
+var alarmas=[];
+//var text1 = document.createTextNode('Accionador');
+var text2 = document.createTextNode('Evento de tiempo');
+var text3 = document.createTextNode('Acción');
+
+
+
+
+  // Obtener la referencia del elemento body
+var select = document.getElementById('ventana')
+
+  // Crea un elemento <table> y un elemento <tbody>
+  var table   = document.createElement("table");
+  //table.setAttribute("class","table table-hover")
+  table.setAttribute("id","table")
+ // table.setAttribute("style","td.fit")
+
+var head=document.createElement("thead");
+var column=document.createElement("tr");
+//var celda1=document.createElement("th");
+//celda1.appendChild(text1);
+//celda1.setAttribute("data-field","accionador")
+var celda2=document.createElement("th");
+celda2.appendChild(text2);
+celda2.setAttribute("data-field","timer")
+var celda3=document.createElement("th");
+celda3.appendChild(text3);
+celda3.setAttribute("data-field","accion")
+
+//column.appendChild(celda1);
+column.appendChild(celda2);
+
+column.appendChild(celda3);
+
+head.appendChild(column);
+
+
+var body=document.createElement("tbody");
+
+
+
+var column2=document.createElement("tr");
+var cell1=document.createElement("td")
+cell1.setAttribute("width","10%")
+
+
+var cell2=document.createElement("td")
+cell2.setAttribute("width","10%")
+
+
+
+var cell3=document.createElement("td")
+cell3.setAttribute("width","10%")
+
+
+
+
+
+body.appendChild(column2);
+
+table.appendChild(head);
+table.appendChild(body);
+
+select.appendChild(table);
+}
+
+
+           
+function insertar(readableDate) {
+
+ // Find a <table> element with id="myTable":
+var table = document.getElementById("table");
+
+// Create an empty <tr> element and add it to the 1st position of the table:
+var row = table.insertRow();
+
+// Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+//var cell1 = row.insertCell();
+var cell2 = row.insertCell();
+var cell3 = row.insertCell();
+
+
+
+var selector2=document.createElement("select");
+selector2.setAttribute("id",readableDate);
+selector2.setAttribute("name","cars2");
+
+
+var opt1=document.createElement("option");
+opt1.setAttribute("value","ON");
+var A1 = document.createTextNode("ON");
+opt1.appendChild(A1);
+
+
+
+var opt2=document.createElement("option");
+opt2.setAttribute("value","OFF")
+var B2 = document.createTextNode("OFF");
+opt2.appendChild(B2);
+
+var opt3=document.createElement("option");
+opt3.setAttribute("value","Borrar")
+var C3 = document.createTextNode("borrar");
+opt3.appendChild(C3);
+
+
+
+
+
+selector2.appendChild(opt1);
+selector2.appendChild(opt2);
+selector2.appendChild(opt3);
+
+
+
+
+
+//cell1.setAttribute("width","10%")
+// Add some text to the new cells:
+//cell1.appendChild(selector);
+
+cell2.innerHTML = readableDate.toString();
+cell3.appendChild(selector2);
+fechas.push(readableDate.toString());
+
+}
+
+</script>
+
+
+<script>
+
+var table = $('#table').DataTable(); 
+
+       $('#table').bootstrapTable({});
+            function load(){
+                var data = [{
+                        accionador: 1,
+                        timer: 'Item 1',
+                        accion: '$1'
+                    }, {
+                        accionador: 2,
+                        timer: 'Item 2',
+                        accion: '$4'
+                    }]; 
+                $('#table').bootstrapTable("load", data);
+            }
+
+
+</script>
+
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2></h2>
+    </div>
+    <div class="modal-body" id="ventana">
+     
+
+<div class="event-log">Event logs:<br>Picker Closed
+</div>
+
+    </div>
+
+    <div class="modal-footer">
+      <h3>Registro Actual</h3>
+    </div>
+  </div>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+var respuesta2 = [];
+
+function copia(respuesta)
+{
+
+respuesta2.push(respuesta)
+console.log(respuesta2);
+
+}
+
+
+var select = document.getElementById('ventana');
+var texto= document.createElement("h1");
+
+var texto3= document.createTextNode("alsjdlkjsd");
+
+texto.appendChild(texto3);
+
+select.appendChild(texto);
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -489,534 +1017,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 
-
-
-<script type="text/javascript">
-
-$( document ).ready(function() {
-
-  $.ajax({
-    url:'/nodos',
-    method:'POST',
-    datatype:"JSON",
-    contentType: "application/json",
-    beforeSend: function(data){
-      console.log('Enviando...',data)
-    },
-
-
-  }).done(function(respuesta){
-
-    const numero = respuesta.length;
-    let nombres = respuesta;
-    const canales=[];
-
-    console.log('Respuesta recibida:',respuesta)
-    console.log(respuesta)
-    console.log(respuesta.length)
- 
-   //console.log(numero);
-
-   
-
-
-
-
-
-
-for ( var item = 0; item < numero ; item++) {
-
-copia(respuesta[item]);
-
-
-           
-
-
-
-
-
-
-
-
-
-
-
-
-            var canv = document.createElement("canvas");
-            
-            var division= document.createElement("div");
-            division.setAttribute("style" , "float: left")
-
-
-
-           
-
-            var salto= document.createElement("br")
-            var porte= document.createElement("h1")
-
-
-            var newContent3 = document.createTextNode(respuesta[item].id);
-            porte.appendChild(newContent3)
-            
-
-
-
-            document.body.appendChild(division)
-
-               
-            canv.setAttribute('width', 500);
-            canv.setAttribute('height', 500);
-
-            canv.setAttribute('id', item);
-            //document.body.appendChild(canv);
-
-            canales.push(nombres[item].id)
-            //console.log(canales);
-           
-
-
-
-
-
- // Obtener la referencia del elemento body
-  var body = document.getElementsByTagName("body")[0];
-
-  // Crea un elemento <table> y un elemento <tbody>
-  var tabla   = document.createElement("table");
-  var tblBody = document.createElement("tbody");
-
-  // Crea las celdas
-  for (var i = 0; i < 4; i++) {
-    // Crea las hileras de la tabla
-    var hilera = document.createElement("tr");
-
-    for (var j = 0; j < 1; j++) {
-      // Crea un elemento <td> y un nodo de texto, haz que el nodo de
-      // texto sea el contenido de <td>, ubica el elemento <td> al final
-      // de la hilera de la tabla
-      var celda = document.createElement("td");
-     // var textoCelda = document.createTextNode("celda en la hilera "+i+", columna "+j);
-      //celda.appendChild(textoCelda);
-      hilera.appendChild(celda);
-
-
-     if(i==0)
-     {
-
-     var textoCelda = document.createTextNode(respuesta[item].id);
-     celda.appendChild(textoCelda);
-     
-     }
-
-
-if(i==1)
-     {
-
-     var textoCelda = document.createTextNode("");
-     celda.appendChild(textoCelda);
-      celda.appendChild(canv)
-      celda.appendChild(textoCelda);
-
-     }
-
-
-if(i==2)
-     {
-
-        var textoCelda2 = document.createTextNode(respuesta[item].info);
-     celda.appendChild(textoCelda2);
-
-
-     
-
-     }
-
-
-if(i==3)
-     {
-
- 
-var ul = document.createElement("ul");
-
- var li = document.createElement("li");
-
- var a1 = document.createElement("a");
- a1.setAttribute("id",item);
- a1.setAttribute("href","#");
-  a1.setAttribute("onClick","abrir2(this.id)");
-
- var texto22 = document.createTextNode("Registro");
-a1.appendChild(texto22);
-
- li.appendChild(a1)
-
-
-
- var li2 = document.createElement("li");
- li2.setAttribute("href","centrales.html");
- var texto33 = document.createTextNode("Archivos");
- li2.setAttribute("id",respuesta[item].id);
- li2.setAttribute("onclick","getPaging(this.id)")
- li2.appendChild(texto33)
-
-
- var a2 = document.createElement("a");
- a2.setAttribute("id",item);
- a2.setAttribute("href","centrales.html");
-
- a2.appendChild(texto33);
-
- li2.appendChild(a2)
-
-
-var ul3 = document.createElement("ul");
-
- var li3 = document.createElement("li");
-
- var a13 = document.createElement("a");
- a13.setAttribute("id",item);
- a13.setAttribute("href","#");
-  a13.setAttribute("onClick","abrir4(this.id)");
-
- var texto223 = document.createTextNode("Acciones");
-a13.appendChild(texto223);
-
- li3.appendChild(a13)
-
-
-
-
-
-
-
-
-
- ul.appendChild(li)
-  ul.appendChild(li2)
-  ul.appendChild(li3)
- 
- 
-
-
-
-
- celda.appendChild(ul)
-
-
-
-     }
-
-
-
-if(i==4)
-     {
-
-
-
-
-
-/*
-        var textoCelda3 = document.createTextNode("Accionador B");
-     celda.appendChild(textoCelda3);
-
-     var dev = document.createElement("div")
-        dev.setAttribute("id","secondTenthsExample")
-        var dav=document.createElement("div");
-        dav.setAttribute("class","values");
-        dev.appendChild(dav)
-        celda.appendChild(dev);
-
-
-
-
-  
-    var pe=document.createElement("div");
-     pe.setAttribute("id","demo"+respuesta[item].id);
-     pe.setAttribute("float","rigth");
-
-     
-     celda.appendChild(pe);
-     
-  */
-
-
-  
-
-  
-     }
-
-
-if(i==5)
-     {
-
-      /*
- var textoCelda2 = document.createTextNode("Accionador B");
-     celda.appendChild(textoCelda2);
-  
-     
-
-*/
-
-
-     }
-
-if(i==6)
-     {
-celda.appendChild(label2)
-    
-     }
-
-     if(i==7)
-     {
-
-
-    var pe=document.createElement("div");
-     pe.setAttribute("id","demo2"+respuesta[item].id);
-     pe.setAttribute("float","rigth");
-
-     
-     celda.appendChild(pe);
-     
-   
-
-     }
-     if(i==8)
-     {
-
-
-var detalles = document.createElement("button");
-   detalles.setAttribute("class","button button1")
-   detalles.setAttribute("id",item)
-   detalles.setAttribute("onclick","abrir1(this.id)")
-
-
-   var textoCelda3 = document.createTextNode("Detalles");
-detalles.appendChild(textoCelda3)
-
-
-
-   celda.appendChild(detalles)
-     
-   var detalles = document.createElement("button");
-   detalles.setAttribute("class","button button1")
-   detalles.setAttribute("id",item)
-   detalles.setAttribute("onclick","abrir2(this.id)")
-
-
-
-   var textoCelda3 = document.createTextNode("Lecturas");
-detalles.appendChild(textoCelda3)
-
-
-
-   celda.appendChild(detalles)
-
-
-
-
-
-
-   var detalles = document.createElement("button");
-   detalles.setAttribute("class","button button1")
-   detalles.setAttribute("id",item)
-   detalles.setAttribute("onclick","abrir1(this.id)")
-
-
-   var textoCelda3 = document.createTextNode("Imagen");
-detalles.appendChild(textoCelda3)
-
-
-
-   celda.appendChild(detalles)
-
-
-
-   var detalles = document.createElement("button");
-   detalles.setAttribute("class","button button1")
-   detalles.setAttribute("id",item)
-   detalles.setAttribute("onclick","abrir1(this.id)")
-
-
-   var textoCelda3 = document.createTextNode("Historial");
-detalles.appendChild(textoCelda3)
-
-
-
-   celda.appendChild(detalles)
-
-
-
-
-
-     }
-
-
-    }
-
-    // agrega la hilera al final de la tabla (al final del elemento tblbody)
-    tblBody.appendChild(hilera);
-  }
-
-
-
-  // posiciona el <tbody> debajo del elemento <table>
-  tabla.appendChild(tblBody);
-  // appends <table> into <body>
-  body.appendChild(tabla);
-  // modifica el atributo "border" de la tabla y lo fija a "2";
-  tabla.setAttribute("border", "2");
-
-
-
- 
-
-
-    //division.appendChild(label);
-    division.appendChild(tabla)
-
-        }
-
-
-
-   comu(canales,numero);
-
-
-}).fail(function(err){
-    console.log(err)
-    
-
-  }
-
-    )
-//console.log(canales);
-
- alert("Descargando información del usuario")
-
-
-});
-
-
-</script>
-
-  
-<script>
-
-function getPaging(str) {
-   localStorage.setItem("dato",str);
-  alert(str);
-  $("#loading-content").load("dataSearch.php?"+str, hideLoader);
- 
-}
-
-</script>
-
-
-
-
-
-<script src="/mqtt.js"></script>
-
-
-
-<style>
-.button {
-  border: none;
-  color: white;
-  padding: 10px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-  margin: 4px 2px;
-  cursor: pointer;
-
-
-}
-
-.button1 {background-color: #4CAF50;} /* Green */
-
-</style>
-
-</body>
-</html>
-
-
-
-<!--
-<canvas id="gauge1"></canvas>
--->
-
-
-<script>
-/*
-new RadialGauge({
-    renderTo: 'gauge1',
-    width: 400,
-    height: 400,
-    units: 'Km/h',
-    title: false,
-    value: 0,
-    minValue: 0,
-    maxValue: 220,
-    majorTicks: [
-        '0','20','40','60','80','100','120','140','160','180','200','220'
-    ],
-    minorTicks: 2,
-    strokeTicks: false,
-    highlights: [
-        { from: 0, to: 50, color: 'rgba(0,255,0,.15)' },
-        { from: 50, to: 100, color: 'rgba(255,255,0,.15)' },
-        { from: 100, to: 150, color: 'rgba(255,30,0,.25)' },
-        { from: 150, to: 200, color: 'rgba(255,0,225,.25)' },
-        { from: 200, to: 220, color: 'rgba(0,0,255,.25)' }
-    ],
-    colorPlate: '#222',
-    colorMajorTicks: '#f5f5f5',
-    colorMinorTicks: '#ddd',
-    colorTitle: '#fff',
-    colorUnits: '#ccc',
-    colorNumbers: '#eee',
-    colorNeedle: 'rgba(240, 128, 128, 1)',
-    colorNeedleEnd: 'rgba(255, 160, 122, .9)',
-    valueBox: true,
-    animationRule: 'bounce',
-    animationDuration: 500
-}).draw();
-*/
-
-/*new RadialGauge({ renderTo: "gauge3",width: 400,
-    height: 400, }).draw();
-      
-*/
-
-
-
-
-
-/*
-if (!window.addEventListener) {
-    window.addEventListener = function(evt, listener) {
-        window.attachEvent('on' + evt, listener);
-    };
-}
-if (!Array.prototype.forEach) {
-    Array.prototype.forEach = function(cb) {
-        var i = 0, s = this.length;
-        for (; i < s; i++) {
-            cb && cb(this[i], i, this);
-        }
-    }
-}
-*/
-
-
-
-</script>
-<!--
-<input type="button" value="Genera una tabla" onclick="genera_tabla()">
--->
-
-
 <style>
 table, th, td {
   border: 1px solid black;
@@ -1080,477 +1080,21 @@ th, td {
 </style>
 
 
+<style>
+.button {
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
 
-<script src="src/bootstrap-input-spinner.js"></script>
-<script>
-    $("input[type='number']").inputSpinner();
-</script>
-
-
-<script src="bootstrap-input-spinner.js"></script>
-
-
-<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.css">
-
-<script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
-       
-
-
-
-
-<script>
-
-
-
-function genera() {
-
-  /*
-    <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-    
-    
-    </tbody>
-  </table>
-*/
-
-
-var alarmas=[];
-//var text1 = document.createTextNode('Accionador');
-var text2 = document.createTextNode('Evento de tiempo');
-var text3 = document.createTextNode('Acción');
-
-
-
-
-  // Obtener la referencia del elemento body
-var select = document.getElementById('ventana')
-
-  // Crea un elemento <table> y un elemento <tbody>
-  var table   = document.createElement("table");
-  //table.setAttribute("class","table table-hover")
-  table.setAttribute("id","table")
- // table.setAttribute("style","td.fit")
-
-var head=document.createElement("thead");
-var column=document.createElement("tr");
-//var celda1=document.createElement("th");
-//celda1.appendChild(text1);
-//celda1.setAttribute("data-field","accionador")
-var celda2=document.createElement("th");
-celda2.appendChild(text2);
-celda2.setAttribute("data-field","timer")
-var celda3=document.createElement("th");
-celda3.appendChild(text3);
-celda3.setAttribute("data-field","accion")
-
-//column.appendChild(celda1);
-column.appendChild(celda2);
-
-column.appendChild(celda3);
-
-head.appendChild(column);
-
-
-var body=document.createElement("tbody");
-
-
-
-var column2=document.createElement("tr");
-var cell1=document.createElement("td")
-cell1.setAttribute("width","10%")
-
-
-var cell2=document.createElement("td")
-cell2.setAttribute("width","10%")
-
-
-
-var cell3=document.createElement("td")
-cell3.setAttribute("width","10%")
-
-
-
-
-
-body.appendChild(column2);
-
-table.appendChild(head);
-table.appendChild(body);
-
-select.appendChild(table);
-}
-
-
-
-
-
-
-
-
-
-
-
-function genera_tabla() {
-
-var alarmas=[];
-
-
-console.log(alarmas.length)
-
-  // Obtener la referencia del elemento body
-var select = document.getElementById('ventana')
-
-  // Crea un elemento <table> y un elemento <tbody>
-  var tabla   = document.createElement("table");
-  tabla.setAttribute("id","sucesos")
-  //tabla.setAttribute("class","table table-hover")
-
-
-
-
-// Create an empty <thead> element and add it to the table:
-var header = tabla.createTHead();
-header.setAttribute("bgcolor","")
-
-// Create an empty <tr> element and add it to the first position of <thead>:
-var row = header.insertRow(0);    
-
-// Insert a new cell (<td>) at the first position of the "new" <tr> element:
-var cell = row.insertCell();
-var cell2 = row.insertCell();
-var cell3 = row.insertCell();
-
-var testo = document.createTextNode('Accionador');
-cell.appendChild(testo);
-
-var testo2 = document.createTextNode('Fecha/Hora');
-cell2.appendChild(testo2);
-
-var testo3 = document.createTextNode('Acción');
-cell3.appendChild(testo3);
-
-
-
-
-
-  var tblBody = document.createElement("tbody");
-
-  // Crea las celdas
-  for (var i = 0; i < alarmas.length; i++) {
-    // Crea las hileras de la tabla
-    var hilera = document.createElement("tr");
-    //hilera.setAttribute("clickable-row","click")
-
-    for (var j = 0; j < 1; j++) {
-      // Crea un elemento <td> y un nodo de texto, haz que el nodo de
-      // texto sea el contenido de <td>, ubica el elemento <td> al final
-      // de la hilera de la tabla
-      var celda = document.createElement("td");
-      var textoCelda = document.createTextNode(alarmas[i]);
-      celda.appendChild(textoCelda);
-      hilera.appendChild(celda);
-    }
-
-    // agrega la hilera al final de la tabla (al final del elemento tblbody)
-    tblBody.appendChild(hilera);
-  }
-
-  // posiciona el <tbody> debajo del elemento <table>
-  tabla.appendChild(tblBody);
-  // appends <table> into <body>
-  select.appendChild(tabla);
-  // modifica el atributo "border" de la tabla y lo fija a "2";
-  tabla.setAttribute("border", "2");
-}
-
-
-function genera_tabla2() {
-
-var triggers=[];
-
-
-console.log(triggers.length)
-
-  // Obtener la referencia del elemento body
-var select = document.getElementById('ventana')
-
-  // Crea un elemento <table> y un elemento <tbody>
-  var tabla   = document.createElement("table");
-  //tabla.setAttribute("class","table table-hover")
-  tabla.setAttribute("id","tigre")
-
-
-
-// Create an empty <thead> element and add it to the table:
-var header = tabla.createTHead();
-header.setAttribute("bgcolor","")
-
-// Create an empty <tr> element and add it to the first position of <thead>:
-var row = header.insertRow(0);    
-
-// Insert a new cell (<td>) at the first position of the "new" <tr> element:
-var cell = row.insertCell();
-var cell2 = row.insertCell();
-var cell3 = row.insertCell();
-var cell4 = row.insertCell()
-
-var testo = document.createTextNode('Sensor');
-cell.appendChild(testo);
-
-var testo2 = document.createTextNode('Condición');
-cell2.appendChild(testo2);
-
-var testo3 = document.createTextNode('Valor');
-cell3.appendChild(testo3);
-
-var testo4 = document.createTextNode('Acción');
-cell4.appendChild(testo4);
-
-
-
-
-
-  var tblBody = document.createElement("tbody");
-
-  // Crea las celdas
-  for (var i = 0; i < triggers.length; i++) {
-    // Crea las hileras de la tabla
-    var hilera = document.createElement("tr");
-    hilera.setAttribute("class","clickable-row")
-
-
-    for (var j = 0; j < 1; j++) {
-      // Crea un elemento <td> y un nodo de texto, haz que el nodo de
-      // texto sea el contenido de <td>, ubica el elemento <td> al final
-      // de la hilera de la tabla
-      var celda = document.createElement("td");
-      var textoCelda = document.createTextNode(triggers[i]);
-      celda.appendChild(textoCelda);
-      hilera.appendChild(celda);
-    }
-
-    // agrega la hilera al final de la tabla (al final del elemento tblbody)
-    tblBody.appendChild(hilera);
-  }
-
-  // posiciona el <tbody> debajo del elemento <table>
-  tabla.appendChild(tblBody);
-  // appends <table> into <body>
-  select.appendChild(tabla);
-  // modifica el atributo "border" de la tabla y lo fija a "2";
-  tabla.setAttribute("border", "2");
-}
-
-
-var fechas=[];
-           
-function insertar(readableDate) {
-
- // Find a <table> element with id="myTable":
-var table = document.getElementById("table");
-
-// Create an empty <tr> element and add it to the 1st position of the table:
-var row = table.insertRow();
-
-// Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
-//var cell1 = row.insertCell();
-var cell2 = row.insertCell();
-var cell3 = row.insertCell();
-
-
-
-var selector2=document.createElement("select");
-selector2.setAttribute("id",readableDate);
-selector2.setAttribute("name","cars2");
-
-
-var opt1=document.createElement("option");
-opt1.setAttribute("value","ON");
-var A1 = document.createTextNode("ON");
-opt1.appendChild(A1);
-
-
-
-var opt2=document.createElement("option");
-opt2.setAttribute("value","OFF")
-var B2 = document.createTextNode("OFF");
-opt2.appendChild(B2);
-
-var opt3=document.createElement("option");
-opt3.setAttribute("value","Borrar")
-var C3 = document.createTextNode("borrar");
-opt3.appendChild(C3);
-
-
-
-
-
-selector2.appendChild(opt1);
-selector2.appendChild(opt2);
-selector2.appendChild(opt3);
-
-
-
-
-
-//cell1.setAttribute("width","10%")
-// Add some text to the new cells:
-//cell1.appendChild(selector);
-
-cell2.innerHTML = readableDate.toString();
-cell3.appendChild(selector2);
-fechas.push(readableDate.toString());
 
 }
 
-</script>
+.button1 {background-color: #4CAF50;} /* Green */
 
-
-<script>
-
-
-
-var table = $('#table').DataTable(); 
-
-       $('#table').bootstrapTable({});
-            function load(){
-                var data = [{
-                        accionador: 1,
-                        timer: 'Item 1',
-                        accion: '$1'
-                    }, {
-                        accionador: 2,
-                        timer: 'Item 2',
-                        accion: '$4'
-                    }]; 
-                $('#table').bootstrapTable("load", data);
-            }
-
-
-</script>
-
-
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">&times;</span>
-      <h2></h2>
-    </div>
-    <div class="modal-body" id="ventana">
-     
-
-<div class="event-log">Event logs:<br>Picker Closed
-</div>
-
-    </div>
-
-
-
-
-    <div class="modal-footer">
-      <h3>Registro Actual</h3>
-    </div>
-  </div>
-
-
-
-<!-- The Modal -->
-<div id="myModal2" class="modal2">
-
-  <!-- Modal content -->
-  <div class="modal-content2">
-    <div class="modal-header2">
-      <span class="close">&times;</span>
-      <h2></h2>
-    </div>
-    <div class="modal-body2" id="ventana2">
-     
-
-
-    </div>
-
-
-
-
-    <div class="modal-footer2">
-      <h3>Accion</h3>
-    </div>
-  </div>
-
-
-</body>
-
-
-</html>
-
-
-<script type="text/javascript">
-  
-
-
-
-</script>
-<script src="./src/bootstrap-input-spinner.js"></script>
-<script>
-// Get the modal
-var modal = document.getElementById("myModal");
-
-var respuesta2 = [];
-
-function copia(respuesta)
-{
-
-respuesta2.push(respuesta)
-console.log(respuesta2);
-
-}
-
-
-var select = document.getElementById('ventana');
-var texto= document.createElement("h1");
-
-var texto3= document.createTextNode("alsjdlkjsd");
-
-texto.appendChild(texto3);
-
-select.appendChild(texto);
-
-
-
-
-
-
-
-</script>
-
-
-
-<script src="js/jquery-1.11.1.min.js"></script>
-
-
-   <script src="js/bootstrap.js"></script>
-
-</script>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
-
-
-
+</style>
